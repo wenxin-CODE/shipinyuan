@@ -365,15 +365,20 @@
   export default {
     methods: {
       deletebrand(row){
+        console.log(row.id);
         const _this = this
-        axios.delete(''+row.id).then(function(resp){
-          _this.$alert(row.id+'删除成功','消息',{
-            confirmButtonText: '确定',
-            callback: action => {
-              window.location.reload()
-              //动态刷新
-            }
-          })
+        axios.delete('http://goat.oct-month.top/api/GoatMilkSample/' + row.id)
+          .then(resp => {
+            _this.$alert(row.id+'删除成功','消息',{
+              confirmButtonText: '确定',
+              callback: action => {
+                window.location.reload()
+                //动态刷新
+              }
+            })
+        })
+        .catch(error => {
+          console.error(error);
         })
       },
       edit(row) {
@@ -409,7 +414,7 @@
           if (200 <= res.status < 300)
           {
             that.tableData = res.data
-            console.log(that.tableData);
+            // console.log(that.tableData);
             that.changePage(1)
           }
         })
