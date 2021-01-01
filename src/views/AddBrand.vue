@@ -1,205 +1,203 @@
 <template>
 <el-form :model="ruleForm" :rules="rules" ref="ruleForm" label-width="250px" class="demo-ruleForm">
-  <el-form-item label="来源" prop="from">
-    <el-input v-model="ruleForm.from"></el-input>
+  <el-form-item label="地区" prop="地区">
+    <el-input v-model="ruleForm['地区']"></el-input>
   </el-form-item>
-  <el-form-item label="组织状态" prop="state">
-    <el-input v-model="ruleForm.state"></el-input>
+  <el-form-item label="组织状态" prop="组织状态">
+    <el-input v-model="ruleForm['组织状态']"></el-input>
   </el-form-item>
-  <el-form-item label="色泽" prop="color">
-    <el-input v-model="ruleForm.color"></el-input>
+  <el-form-item label="色泽" prop="色泽">
+    <el-input v-model="ruleForm['色泽']"></el-input>
   </el-form-item>
-  <el-form-item label="水分" prop="water">
-    <el-input v-model="ruleForm.water"></el-input>
+  <el-form-item label="水分" prop="水分">
+    <el-input v-model="ruleForm['水分']"></el-input>
   </el-form-item>
-  <el-form-item label="蛋白质" prop="protein">
-    <el-input v-model="ruleForm.protein"></el-input>
+  <el-form-item label="蛋白质" prop="蛋白质">
+    <el-input v-model="ruleForm['蛋白质']"></el-input>
   </el-form-item>
-  <el-form-item label="脂肪" prop="fat">
-    <el-input v-model="ruleForm.fat"></el-input>
+  <el-form-item label="脂肪" prop="脂肪">
+    <el-input v-model="ruleForm['脂肪']"></el-input>
   </el-form-item>
-  <el-form-item label="乳糖" prop="suger">
-    <el-input v-model="ruleForm.suger"></el-input>
+  <el-form-item label="乳糖" prop="乳糖">
+    <el-input v-model="ruleForm['乳糖']"></el-input>
   </el-form-item>
-  <el-form-item label="蔗糖" prop="sucrose">
-    <el-input v-model="ruleForm.sucrose"></el-input>
+  <el-form-item label="蔗糖" prop="蔗糖">
+    <el-input v-model="ruleForm['蔗糖']"></el-input>
   </el-form-item>
-  <el-form-item label="维生素A" prop="">
-    <el-input v-model="ruleForm.weiA"></el-input>
+  <el-form-item label="维生素A" prop="维生素A">
+    <el-input v-model="ruleForm['维生素A']"></el-input>
   </el-form-item>
-  <el-form-item label="维生素D" prop="">
-    <el-input v-model="ruleForm.weiD"></el-input>
+  <el-form-item label="维生素D" prop="维生素D">
+    <el-input v-model="ruleForm['维生素D']"></el-input>
   </el-form-item>
-  <el-form-item label="维生素E" prop="">
-    <el-input v-model="ruleForm.weiE"></el-input>
+  <el-form-item label="维生素E" prop="维生素E">
+    <el-input v-model="ruleForm['维生素E']"></el-input>
   </el-form-item>
-  <el-form-item label="维生素K1" prop="">
-    <el-input v-model="ruleForm.weiK1"></el-input>
+  <el-form-item label="维生素K1" prop="维生素K1">
+    <el-input v-model="ruleForm['维生素K1']"></el-input>
   </el-form-item>
-  <el-form-item label="维生素B1" prop="">
-    <el-input v-model="ruleForm.weiB1"></el-input>
+  <el-form-item label="维生素B1" prop="维生素B1">
+    <el-input v-model="ruleForm['维生素B1']"></el-input>
   </el-form-item>
-  <el-form-item label="维生素B2" prop="">
-    <el-input v-model="ruleForm.weiB2"></el-input>
+  <el-form-item label="维生素B2" prop="维生素B2">
+    <el-input v-model="ruleForm['维生素B2']"></el-input>
   </el-form-item>
-  <el-form-item label="维生素B6" prop="">
-    <el-input v-model="ruleForm.weiB6"></el-input>
+  <el-form-item label="维生素B6" prop="维生素B6">
+    <el-input v-model="ruleForm['维生素B6']"></el-input>
   </el-form-item>
-  <el-form-item label="维生素B12" prop="">
-    <el-input v-model="ruleForm.weiB12"></el-input>
+  <el-form-item label="维生素B12" prop="维生素B12">
+    <el-input v-model="ruleForm['维生素B12']"></el-input>
   </el-form-item>
-  <el-form-item label="烟酸" prop="">
-    <el-input v-model="ruleForm.niacin"></el-input>
+  <el-form-item label="烟酸" prop="烟酸">
+    <el-input v-model="ruleForm['烟酸']"></el-input>
   </el-form-item>
-  <el-form-item label="叶酸" prop="">
-    <el-input v-model="ruleForm.folic"></el-input>
+  <el-form-item label="叶酸" prop="叶酸">
+    <el-input v-model="ruleForm['叶酸']"></el-input>
   </el-form-item>
-  <el-form-item label="泛酸" prop="">
-    <el-input v-model="ruleForm.panto_acid"></el-input>
+  <el-form-item label="泛酸" prop="泛酸">
+    <el-input v-model="ruleForm['泛酸']"></el-input>
   </el-form-item>
-  <el-form-item label="维生素C" prop="">
-    <el-input v-model="ruleForm.weiC"></el-input>
+  <el-form-item label="维生素C" prop="维生素C">
+    <el-input v-model="ruleForm['维生素C']"></el-input>
   </el-form-item>
-  <el-form-item label="生物素" prop="">
-    <el-input v-model="ruleForm.biotin"></el-input>
+  <el-form-item label="生物素" prop="生物素">
+    <el-input v-model="ruleForm['生物素']"></el-input>
   </el-form-item>
-  <el-form-item label="胆碱" prop="">
-    <el-input v-model="ruleForm.choline"></el-input>
+  <el-form-item label="胆碱" prop="胆碱">
+    <el-input v-model="ruleForm['胆碱']"></el-input>
   </el-form-item>
-  <el-form-item label="铁" prop="">
-    <el-input v-model="ruleForm.Fe"></el-input>
+  <el-form-item label="铁" prop="铁">
+    <el-input v-model="ruleForm['铁']"></el-input>
   </el-form-item>
-  <el-form-item label="钙" prop="">
-    <el-input v-model="ruleForm.Ca"></el-input>
+  <el-form-item label="钙" prop="钙">
+    <el-input v-model="ruleForm['钙']"></el-input>
   </el-form-item>
-  <el-form-item label="锌" prop="">
-    <el-input v-model="ruleForm.Zn"></el-input>
+  <el-form-item label="锌" prop="锌">
+    <el-input v-model="ruleForm['锌']"></el-input>
   </el-form-item>
-  <el-form-item label="磷" prop="">
-    <el-input v-model="ruleForm.P"></el-input>
+  <el-form-item label="磷" prop="磷">
+    <el-input v-model="ruleForm['磷']"></el-input>
   </el-form-item>
-  <el-form-item label="钠" prop="">
-    <el-input v-model="ruleForm.Na"></el-input>
+  <el-form-item label="钠" prop="钠">
+    <el-input v-model="ruleForm['钠']"></el-input>
   </el-form-item>
-  <el-form-item label="钾" prop="">
-    <el-input v-model="ruleForm.K"></el-input>
+  <el-form-item label="钾" prop="钾">
+    <el-input v-model="ruleForm['钾']"></el-input>
   </el-form-item>
-  <el-form-item label="镁" prop="">
-    <el-input v-model="ruleForm.Mg"></el-input>
+  <el-form-item label="镁" prop="镁">
+    <el-input v-model="ruleForm['镁']"></el-input>
   </el-form-item>
-  <el-form-item label="铜" prop="">
-    <el-input v-model="ruleForm.Cu"></el-input>
+  <el-form-item label="铜" prop="铜">
+    <el-input v-model="ruleForm['铜']"></el-input>
   </el-form-item>
-  <el-form-item label="锰" prop="">
-    <el-input v-model="ruleForm.Mn"></el-input>
+  <el-form-item label="锰" prop="锰">
+    <el-input v-model="ruleForm['锰']"></el-input>
   </el-form-item>
-  <el-form-item label="硒" prop="">
-    <el-input v-model="ruleForm.Se"></el-input>
+  <el-form-item label="硒" prop="硒">
+    <el-input v-model="ruleForm['硒']"></el-input>
   </el-form-item>
-  <el-form-item label="碘" prop="">
-    <el-input v-model="ruleForm.I"></el-input>
+  <el-form-item label="碘" prop="碘">
+    <el-input v-model="ruleForm['碘']"></el-input>
   </el-form-item>
-  <el-form-item label="铅" prop="">
-    <el-input v-model="ruleForm.Pb"></el-input>
+  <el-form-item label="铅" prop="铅">
+    <el-input v-model="ruleForm['铅']"></el-input>
   </el-form-item>
-  <el-form-item label="铬" prop="">
-    <el-input v-model="ruleForm.Cr"></el-input>
+  <el-form-item label="铬" prop="铬">
+    <el-input v-model="ruleForm['铬']"></el-input>
   </el-form-item>
-  <el-form-item label="镉" prop="">
-    <el-input v-model="ruleForm.Cd"></el-input>
+  <el-form-item label="镉" prop="镉">
+    <el-input v-model="ruleForm['镉']"></el-input>
   </el-form-item>
-  <el-form-item label="总砷" prop="">
-    <el-input v-model="ruleForm.As"></el-input>
+  <el-form-item label="总砷" prop="总砷">
+    <el-input v-model="ruleForm['总砷']"></el-input>
   </el-form-item>
-  <el-form-item label="亚油酸" prop="">
-    <el-input v-model="ruleForm.linoleic_acid"></el-input>
+  <el-form-item label="亚油酸" prop="亚油酸">
+    <el-input v-model="ruleForm['亚油酸']"></el-input>
   </el-form-item>
-  <el-form-item label="α-亚麻酸" prop="">
-    <el-input v-model="ruleForm.α_linoleic_acid"></el-input>
+  <el-form-item label="α-亚麻酸" prop="α-亚麻酸">
+    <el-input v-model="ruleForm['α-亚麻酸']"></el-input>
   </el-form-item>
-  <el-form-item label="亚油酸:α-亚麻酸" prop="">
-    <el-input v-model="ruleForm.α_bizhi"></el-input>
+  <el-form-item label="亚油酸:α-亚麻酸" prop="亚油酸:α-亚麻酸">
+    <el-input v-model="ruleForm['亚油酸:α-亚麻酸']"></el-input>
   </el-form-item>
-  <el-form-item label="DHA" prop="">
-    <el-input v-model="ruleForm.DHA"></el-input>
+  <el-form-item label="DHA" prop="DHA">
+    <el-input v-model="ruleForm['DHA']"></el-input>
   </el-form-item>
-  <el-form-item label="ARA" prop="">
-    <el-input v-model="ruleForm.ARA"></el-input>
+  <el-form-item label="ARA" prop="ARA">
+    <el-input v-model="ruleForm['ARA']"></el-input>
   </el-form-item>
-  <el-form-item label="月桂酸和肉豆蔻酸占总脂肪酸的比例" prop="">
-    <el-input v-model="ruleForm.bili"></el-input>
+  <el-form-item label="月桂酸和肉豆蔻酸占总脂肪酸的比例" prop="月桂酸和肉豆蔻酸占总脂肪酸的比例">
+    <el-input v-model="ruleForm['月桂酸和肉豆蔻酸占总脂肪酸的比例']"></el-input>
   </el-form-item>
-  <el-form-item label="反式脂肪酸与总脂肪酸的比值" prop="">
-    <el-input v-model="ruleForm.bizhi"></el-input>
+  <el-form-item label="反式脂肪酸与总脂肪酸的比值" prop="反式脂肪酸与总脂肪酸的比值">
+    <el-input v-model="ruleForm['反式脂肪酸与总脂肪酸的比值']"></el-input>
   </el-form-item>
-
-  <el-form-item label="OPO" prop="">
-    <el-input v-model="ruleForm.OPO"></el-input>
+  <el-form-item label="OPO" prop="OPO">
+    <el-input v-model="ruleForm['OPO']"></el-input>
   </el-form-item>
-  <el-form-item label="氯" prop="">
-    <el-input v-model="ruleForm.Cl"></el-input>
+  <el-form-item label="氯" prop="氯">
+    <el-input v-model="ruleForm['氯']"></el-input>
   </el-form-item>
-  <el-form-item label="酸度" prop="">
-    <el-input v-model="ruleForm.PH"></el-input>
+  <el-form-item label="酸度" prop="酸度">
+    <el-input v-model="ruleForm['酸度']"></el-input>
   </el-form-item>
-  <el-form-item label="碳水化合物" prop="">
-    <el-input v-model="ruleForm.carbohydrate"></el-input>
+  <el-form-item label="碳水化合物" prop="碳水化合物">
+    <el-input v-model="ruleForm['碳水化合物']"></el-input>
   </el-form-item>
-  <el-form-item label="灰分" prop="">
-    <el-input v-model="ruleForm.ash_content"></el-input>
+  <el-form-item label="灰分" prop="灰分">
+    <el-input v-model="ruleForm['灰分']"></el-input>
   </el-form-item>
-  <el-form-item label="Asp" prop="">
-    <el-input v-model="ruleForm.Asp"></el-input>
+  <el-form-item label="Asp" prop="Asp">
+    <el-input v-model="ruleForm['Asp']"></el-input>
   </el-form-item>
-  <el-form-item label="Thr" prop="">
-    <el-input v-model="ruleForm.Thr"></el-input>
+  <el-form-item label="Thr" prop="Thr">
+    <el-input v-model="ruleForm['Thr']"></el-input>
   </el-form-item>
-  <el-form-item label="Ser" prop="">
-    <el-input v-model="ruleForm.Ser"></el-input>
+  <el-form-item label="Ser" prop="Ser">
+    <el-input v-model="ruleForm['Ser']"></el-input>
   </el-form-item>
-  <el-form-item label="Glu" prop="">
-    <el-input v-model="ruleForm.Glu"></el-input>
+  <el-form-item label="Glu" prop="Glu">
+    <el-input v-model="ruleForm['Glu']"></el-input>
   </el-form-item>
-  <el-form-item label="Gly" prop="">
-    <el-input v-model="ruleForm.GLy"></el-input>
+  <el-form-item label="Gly" prop="Gly">
+    <el-input v-model="ruleForm['Gly']"></el-input>
   </el-form-item>
-  <el-form-item label="Ala" prop="">
-    <el-input v-model="ruleForm.Ala"></el-input>
+  <el-form-item label="Ala" prop="Ala">
+    <el-input v-model="ruleForm['Ala']"></el-input>
   </el-form-item>
-  <el-form-item label="Val" prop="">
-    <el-input v-model="ruleForm.Val"></el-input>
+  <el-form-item label="Val" prop="Val">
+    <el-input v-model="ruleForm['Val']"></el-input>
   </el-form-item>
-  <el-form-item label="Met" prop="">
-    <el-input v-model="ruleForm.Met"></el-input>
+  <el-form-item label="Met" prop="Met">
+    <el-input v-model="ruleForm['Met']"></el-input>
   </el-form-item>
-  <el-form-item label="Ile" prop="">
-    <el-input v-model="ruleForm.Ile"></el-input>
+  <el-form-item label="Ile" prop="Ile">
+    <el-input v-model="ruleForm['Ile']"></el-input>
   </el-form-item>
-  <el-form-item label="Leu" prop="">
-    <el-input v-model="ruleForm.Leu"></el-input>
+  <el-form-item label="Leu" prop="Leu">
+    <el-input v-model="ruleForm['Leu']"></el-input>
   </el-form-item>
-  <el-form-item label="Tyr" prop="">
-    <el-input v-model="ruleForm.Tyr"></el-input>
+  <el-form-item label="Tyr" prop="Tyr">
+    <el-input v-model="ruleForm['Tyr']"></el-input>
   </el-form-item>
-  <el-form-item label="Phe" prop="">
-    <el-input v-model="ruleForm.Phe"></el-input>
+  <el-form-item label="Phe" prop="Phe">
+    <el-input v-model="ruleForm['Phe']"></el-input>
   </el-form-item>
-  <el-form-item label="Lys" prop="">
-    <el-input v-model="ruleForm.Lys"></el-input>
+  <el-form-item label="Lys" prop="Lys">
+    <el-input v-model="ruleForm['Lys']"></el-input>
   </el-form-item>
   <el-form-item label="His" prop="His">
-    <el-input v-model="ruleForm.His"></el-input>
+    <el-input v-model="ruleForm['His']"></el-input>
   </el-form-item>
   <el-form-item label="Arg" prop="Arg">
-    <el-input v-model="ruleForm.Arg"></el-input>
+    <el-input v-model="ruleForm['Arg']"></el-input>
   </el-form-item>
   <el-form-item label="Pro" prop="Pro">
-    <el-input v-model="ruleForm.Pro"></el-input>
+    <el-input v-model="ruleForm['Pro']"></el-input>
   </el-form-item>
-  <el-form-item label="氨基酸" prop="amino_acid">
-    <el-input v-model="ruleForm.amino_acid"></el-input>
+  <el-form-item label="氨基酸总量" prop="氨基酸总量">
+    <el-input v-model="ruleForm['氨基酸总量']"></el-input>
   </el-form-item>
-
   <el-form-item>
     <el-button type="primary" @click="submitForm('ruleForm')">立即创建</el-button>
     <el-button @click="resetForm('ruleForm')">重置</el-button>
@@ -211,55 +209,56 @@
     data() {
       return {
         ruleForm: {
-          from:'',
-          state: '',
-          color: '',
-          water: '1',
-          protein: '',
-          fat: '',
-          suger: '',
-          source:'',
-          weiA:'',
-          weiD:'',
-          weiE:'11',
-          weiK1:'1',
-          weiB1:'1',
-          weiB2:'1',
-          weiB6:'',
-          weiB12:'1',
-          niacin:'',
-          folic:'',
-          panto_acid:'11',
-          weiC:'',
-          biotin:'1',
-          choline:'',
-          Fe:'',
-          Ca:'',
-          Zn:'',
-          P:'',
-          Na:'',
-          K:'',
-          Mg:'',
-          Cu:'',
-          Mn:'',
-          Se:'',
-          I:'',
-          Pb:'',
-          Cr:'',
-          Cd:'',
-          As:'',
-          linoleic_acid:'',
-          α_linoleic_acid:'',
-          α_bizhi:'',
+          地区: '',
+          组织状态:'',
+          色泽:'',
+          水分:'',
+          蛋白质:'',
+          脂肪:'',
+          脂肪:'',
+          乳糖:'',
+          蔗糖:'',
+          维生素A:'',
+          维生素D:'',
+          维生素E:'',
+          维生素K1:'',
+          维生素B1:'',
+          维生素B2:'',
+          维生素B6:'',
+          维生素B12:'',
+          烟酸:'',
+          叶酸:'',
+          泛酸:'',
+          维生素C:'',
+          生物素:'',
+          胆碱:'',
+          铁:'',
+          钙:'',
+          锌:'',
+          磷:'',
+          钠:'',
+          钾:'',
+          镁:'',
+          铜:'',
+          锰:'',
+          硒:'',
+          碘:'',
+          铅:'',
+          铬:'',
+          镉:'',
+          总砷:'',
+          亚油酸:'',
+          'α-亚麻酸':'',
+          '亚油酸:α-亚麻酸':'',
           DHA:'',
           ARA:'',
-          bili:'',
-          bizhi:'',
+          月桂酸和肉豆蔻酸占总脂肪酸的比例:'',
+          反式脂肪酸与总脂肪酸的比值:'',
           OPO:'',
-          Cl:'',
-          PH:'',
-          carbohydrate:'',
-          ash_content:'',
+          氯:'',
+          酸度:'',
+          碳水化合物:'',
+          灰分:'',
           Asp:'',
           Thr:'',
           Ser:'',
@@ -276,7 +275,7 @@
           His:'',
           Arg:'',
           Pro:'',
-          amino_acid:''
+          氨基酸总量:'',
         },
         rules: {
           state: [
@@ -287,20 +286,14 @@
     },
     methods: {
       submitForm(formName) {
-          const _this = this
-        this.$refs[formName].validate((valid) => {
-          if (valid) {
-            console.log(_this.ruleForm)
-            //与后端交互 
-            // axios.post('',this.ruleForm).then(function(resp){
-            //     if(resp.data == 'success'){
-            //         _this.$message('添加成功')
-            //     }
-            // })
-          } else {
-            return false;
-          }
-        });
+        const _this = this
+        //与后端交互 
+        axios.post('http://goat.oct-month.top/api/GoatMilkSample', this.ruleForm)
+          .then(res => {
+            if(res.data > 0) {
+                _this.$message('添加成功')
+            }
+        })
       },
       resetForm(formName) {
         this.$refs[formName].resetFields();
