@@ -385,7 +385,7 @@
         this.$router.push({
           path: '/BrandUpdate',
           query:{
-            id: row.id
+            row: row
             //跳转到修改页面，利用id查询数据库对应信息显示出来
           }
         })
