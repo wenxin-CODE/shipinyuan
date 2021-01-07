@@ -1,7 +1,10 @@
 <template>
 <el-form :model="ruleForm" :rules="rules" ref="ruleForm" label-width="250px" class="demo-ruleForm">
-  <el-form-item label="地区" prop="地区">
-    <el-input v-model="ruleForm['地区']"></el-input>
+  <el-form-item label="地区" prop="info">
+    <el-input v-model="ruleForm['info']"></el-input>
+  </el-form-item>
+  <el-form-item label="品种" prop="品种">
+    <el-input v-model="ruleForm['品种']"></el-input>
   </el-form-item>
   <el-form-item label="组织状态" prop="组织状态">
     <el-input v-model="ruleForm['组织状态']"></el-input>
@@ -209,7 +212,8 @@
     data() {
       return {
         ruleForm: {
-          地区: '',
+          info: '',
+          品种: '',
           组织状态:'',
           色泽:'',
           水分:'',
@@ -290,7 +294,7 @@
         //与后端交互 
         axios.post('http://goat.oct-month.top/api/GoatMilkSample', this.ruleForm)
           .then(res => {
-            if(res.data > 0) {
+            if(200 <= res.status < 300) {
                 _this.$message('添加成功')
             }
         })

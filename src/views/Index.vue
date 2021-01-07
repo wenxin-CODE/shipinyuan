@@ -1,5 +1,5 @@
 <template>
-  <el-container style="height: 500px; border: 1px solid #eee">
+  <el-container id="container">
   
   <el-aside width="200px" style="background-color: rgb(238, 241, 246)">
     <el-menu :default-openeds="['1']" :default-active="'1-1'">
@@ -38,7 +38,10 @@
 </template>
 
 <style scoped>
-  
+#container {
+  height: 100%;
+  border: 1px solid #eee;
+}
 </style>
 
 <script>

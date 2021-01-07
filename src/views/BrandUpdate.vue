@@ -3,6 +3,12 @@
   <el-form-item label="公司编号" prop="id">
     <el-input v-model="ruleForm['id']" disabled readOnly></el-input>
   </el-form-item>
+  <el-form-item label="来源" prop="info">
+    <el-input v-model="ruleForm['info']"></el-input>
+  </el-form-item>
+  <el-form-item label="品种" prop="品种">
+    <el-input v-model="ruleForm['品种']"></el-input>
+  </el-form-item>
   <el-form-item label="组织状态" prop="组织状态">
     <el-input v-model="ruleForm['组织状态']"></el-input>
   </el-form-item>
@@ -212,6 +218,8 @@
       return {
         ruleForm: {
           id:0,
+          info: '',
+          品种: '',
           组织状态:'',
           色泽:'',
           水分:'',
@@ -292,7 +300,7 @@
         //与后端交互 
         axios.put('http://goat.oct-month.top/api/GoatMilkSample', this.ruleForm)
           .then(res => {
-            if(res.data == 1) {
+            if(200 <= res.status < 300) {
                 _this.$message('修改成功')
             }
         })
@@ -307,11 +315,6 @@
     mounted() {
         const _this = this
         this.ruleForm = this.$route.query.row
-        // axios.get(''+this.$route.query.id).then(function(resp){
-        //     _this.ruleForm = resp.data
-        // })
-        //后端实现，提供findByid方法
-        //页面跳转用router，传参数用route
     }
   }
 </script>

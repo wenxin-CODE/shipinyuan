@@ -11,8 +11,13 @@
         width="150">
       </el-table-column>
       <el-table-column
-        prop="地区"
+        prop="info"
         label="来源"
+        width="120">
+      </el-table-column>
+      <el-table-column
+        prop="品种"
+        label="品种"
         width="120">
       </el-table-column>
       <el-table-column
@@ -365,7 +370,7 @@
   export default {
     methods: {
       deletebrand(row){
-        console.log(row.id);
+        // console.log(row.id);
         const _this = this
         axios.delete('http://goat.oct-month.top/api/GoatMilkSample/' + row.id)
           .then(resp => {
