@@ -11,8 +11,13 @@
       width="150">
     </el-table-column>
     <el-table-column
-      prop="地区"
-      label="来源"
+      prop="info"
+      label="品种"
+      width="120">
+    </el-table-column>
+    <el-table-column
+      prop="区域"
+      label="区域"
       width="120">
     </el-table-column>
     <el-table-column
@@ -71,7 +76,7 @@
   layout="prev, pager, next"
   :page-size="page_size"
   :total="tableData.length"
-  @current-change="page">
+  @current-change="changePage">
   </el-pagination>
   </div>
 </template>
@@ -82,9 +87,9 @@
       deletebrand(row){
         console.log(row.id);
         const _this = this
-        axios.delete('' + row.id)
+        axios.delete('http://goat.oct-month.top/api/GoatMilkSample2' + row.id)
           .then(resp => {
-            _this.$alert(row.id+'删除成功','消息',{
+            _this.$alert(row.id + '删除成功','消息', {
               confirmButtonText: '确定',
               callback: action => {
                 window.location.reload()
@@ -106,25 +111,16 @@
         })
         //row.id
       },
-      page(currentPage){
+      changePage(currentPage){
         var start = this.page_size * (currentPage - 1)
         var end = start + this.page_size
         this.currentTabelData = this.tableData.slice(start, end)
       }
     },
 
-    //用于获取后台返回的数据
-    // created(){
-    //   const _this = this
-    //   axios.get('').then(function (resp){
-    //     _this.tableData = resp.data.content
-    //     _this.total = resp.data.totalElements
-    //   })
-    // },
-
     mounted() {
       const that = this
-      axios.get('')
+      axios.get('http://goat.oct-month.top/api/GoatMilkSample2')
         .then(res => {
           if (200 <= res.status < 300)
           {
@@ -142,7 +138,7 @@
       return {
         // total: null,
         // tableData: null,
-       tableData: [],
+        tableData: [],
         currentTabelData: [],
         page_size: 5
       }

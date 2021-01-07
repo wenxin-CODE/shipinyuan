@@ -3,8 +3,11 @@
   <el-form-item label="公司编号">
     <el-input v-model="ruleForm['id']" readOnly></el-input>
   </el-form-item>
-  <el-form-item label="来源">
-    <el-input v-model="ruleForm['来源']" readOnly></el-input>
+  <el-form-item label="品种">
+    <el-input v-model="ruleForm['info']" readOnly></el-input>
+  </el-form-item>
+  <el-form-item label="区域">
+    <el-input v-model="ruleForm['区域']" readOnly></el-input>
   </el-form-item>
   <el-form-item label="感官" prop="feel">
     <el-input v-model="ruleForm['感官']"></el-input>
@@ -42,8 +45,9 @@
     data() {
       return {
         ruleForm: {
-          id:'1',
-          来源: '陕西省', 
+          id: '1',
+          info: '',
+          区域: '陕西省外', 
           感官: '符合',
           脂肪: 28.5,
           蛋白质: 24.9,
@@ -63,36 +67,24 @@
     methods: {
       submitForm(formName) {
           const _this = this
-        axios.put('http://goat.oct-month.top/api/GoatMilkSample', this.ruleForm)
-          .then(res => {
-            if(res.data == 1) {
-                _this.$message('修改成功')
-            }
-        })
-        .catch(error => {
-          console.error(error)
-        })
+          axios.put('http://goat.oct-month.top/api/GoatMilkSample2', this.ruleForm)
+            .then(res => {
+              if(200 <= res.status < 300) {
+                  _this.$message('修改成功')
+              }
+          })
+          .catch(error => {
+            console.error(error)
+          })
       },
       resetForm(formName) {
         this.$refs[formName].resetFields();
       }
     },
-    // created(){
-    //     const _this = this
-    //     axios.get(''+this.$route.query.id).then(function(resp){
-    //         _this.ruleForm = resp.data
-    //     })
-    //     //后端实现，提供findByid方法
-    //     //页面跳转用router，传参数用route
-    // }
+
     mounted() {
         const _this = this
         this.ruleForm = this.$route.query.row
-        // axios.get(''+this.$route.query.id).then(function(resp){
-        //     _this.ruleForm = resp.data
-        // })
-        //后端实现，提供findByid方法
-        //页面跳转用router，传参数用route
     }
   }
 </script>
