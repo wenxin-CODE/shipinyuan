@@ -16,19 +16,19 @@ Vue.use(VueRouter)
 const routes = [
   {
     path: "/",
-    name: "品牌",
+    name: "市销产品",
     component: Index,
     show: true,
     redirect: "/Brand",
     children:[
       {
         path: '/Brand',
-        name: '品牌查询',
+        name: '产品查询',
         component: Brand
       },
       {
         path: '/AddBrand',
-        name: '添加品牌',
+        name: '添加产品',
         component: AddBrand
       }
 
@@ -64,18 +64,18 @@ const routes = [
   },
   {
     path: "/navigation",
-    name: "银桥",
+    name: "公司自检样品",
     component: Index,
     show: true,
     children:[
       {
         path: '/Milk',
-        name: '牛奶信息',
+        name: '羊奶信息',
         component: Milk
       },
       {
         path: '/AddMilk',
-        name: '添加奶粉',
+        name: '添加生羊乳',
         component: AddMilk
       }
     ]

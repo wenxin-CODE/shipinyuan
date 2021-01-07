@@ -12,62 +12,62 @@
     </el-table-column>
     <el-table-column
       fixed
-      prop="date"
+      prop="日期"
       label="日期"
       width="150">
     </el-table-column>
     <el-table-column
-      prop="milk_station"
+      prop="奶站"
       label="奶站"
       width="300">
     </el-table-column>
     <el-table-column
-      prop="feel"
+      prop="感官"
       label="感官"
       width="300">
     </el-table-column>
     <el-table-column
-      prop="fat"
+      prop="脂肪"
       label="脂肪"
       width="300">
     </el-table-column>
     <el-table-column
-      prop="protein"
+      prop="蛋白质"
       label="蛋白质"
       width="120">
     </el-table-column>
     <el-table-column
-      prop="Non_fatty_emulsion_solids"
+      prop="非脂乳固体"
       label="非脂乳固体"
       width="300">
     </el-table-column>
     <el-table-column
-      prop="freezing_point"
+      prop="冰点"
       label="冰点"
       width="300">
     </el-table-column>
     <el-table-column
-      prop="PH"
+      prop="酸度"
       label="酸度"
       width="300">
     </el-table-column>
     <el-table-column
-      prop="antibiotics"
+      prop="抗生素"
       label="抗生素"
       width="300">
     </el-table-column>
     <el-table-column
-      prop="β_lactamase"
+      prop="β-内酰胺酶"
       label="β-内酰胺酶"
       width="300">
     </el-table-column>
     <el-table-column
-      prop="alcohol"
+      prop="酒精实验"
       label="酒精实验"
       width="300">
     </el-table-column>
     <el-table-column
-      prop="boiling"
+      prop="煮沸实验"
       label="煮沸实验"
       width="300">
     </el-table-column>
@@ -91,8 +91,8 @@
   <el-pagination
   background
   layout="prev, pager, next"
-  page-size="5"
-  :total="50"
+  :page-size="page_size"
+  :total="tableData.length"
   @current-change="page">
   </el-pagination>
   </div>
@@ -102,29 +102,36 @@
   export default {
     methods: {
       deletemilk(row){
+         console.log(row.id);
         const _this = this
-        axios.delete(''+row.id).then(function(resp){
-          _this.$alert(row.id+'删除成功','消息',{
-            confirmButtonText: '确定',
-            callback: action => {
-              window.location.reload()
-              //动态刷新
-            }
-          })
+        axios.delete('' + row.id)
+          .then(resp => {
+            _this.$alert(row.id+'删除成功','消息',{
+              confirmButtonText: '确定',
+              callback: action => {
+                window.location.reload()
+                //动态刷新
+              }
+            })
+        })
+        .catch(error => {
+          console.error(error);
         })
       },
       edit(row) {
         this.$router.push({
           path: '/MilkUpdate',
           query:{
-            id: row.id
+            row: row
             //跳转到修改页面，利用id查询数据库对应信息显示出来
           }
         })
         //row.id
       },
       page(currentPage){
-        alert(currentPage)
+        var start = this.page_size * (currentPage - 1)
+        var end = start + this.page_size
+        this.currentTabelData = this.tableData.slice(start, end)
       }
     },
 
@@ -136,6 +143,22 @@
     //     _this.total = resp.data.totalElements
     //   })
     // },
+
+    mounted() {
+      const that = this
+      axios.get('')
+        .then(res => {
+          if (200 <= res.status < 300)
+          {
+            that.tableData = res.data
+            // console.log(that.tableData);
+            that.changePage(1)
+          }
+        })
+        .catch(error => {
+          console.error(error)
+        })
+    },
 
     data() {
       return {
@@ -187,6 +210,9 @@
           protein: 3.19,
           fat: 3.26
         }]
+        // tableData: [],
+        // currentTabelData: [],
+        // page_size: 5
       }
     }
   }
