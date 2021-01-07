@@ -84,10 +84,10 @@
 <script>
   export default {
     methods: {
-      deletebrand(row){
-        console.log(row.id);
+      deleteinfo(row){
+        //console.log(row.id);
         const _this = this
-        axios.delete('http://goat.oct-month.top/api/GoatMilkSample2' + row.id)
+        axios.delete('http://goat.oct-month.top/api/GoatMilkSample2/' + row.id)
           .then(resp => {
             _this.$alert(row.id + '删除成功','消息', {
               confirmButtonText: '确定',

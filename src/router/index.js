@@ -10,6 +10,7 @@ import AddBrand from '../views/AddBrand'
 import BrandUpdate from '../views/BrandUpdate'
 import InfoUpdate from '../views/InfoUpdate'
 import MilkUpdate from '../views/MilkUpdate'
+import BrandFind from '../views/BrandFind'
 
 Vue.use(VueRouter)
 
@@ -30,6 +31,11 @@ const routes = [
         path: '/AddBrand',
         name: '添加产品',
         component: AddBrand
+      },
+      {
+        path: '/BrangFind',
+        name: '查询产品',
+        component: BrandFind
       }
 
     ],
