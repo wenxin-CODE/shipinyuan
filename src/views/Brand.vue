@@ -262,82 +262,82 @@
       </el-table-column>
       <el-table-column
         prop="Asp"
-        label="Asp"
-        width="120">
+        label="天冬氨酸"
+        width="220">
       </el-table-column>
       <el-table-column
         prop="Thr"
-        label="Thr"
+        label="苏氨酸"
         width="120">
       </el-table-column>
       <el-table-column
         prop="Ser"
-        label="Ser"
+        label="丝氨酸"
         width="120">
       </el-table-column>
       <el-table-column
         prop="Glu"
-        label="Glu"
+        label="谷氨酸"
         width="120">
       </el-table-column>
       <el-table-column
         prop="Gly"
-        label="Gly"
+        label="甘氨酸"
         width="120">
       </el-table-column>
       <el-table-column
         prop="Ala"
-        label="Ala"
+        label="丙氨酸"
         width="120">
       </el-table-column>
       <el-table-column
         prop="Val"
-        label="Val"
+        label="缬氨酸"
         width="120">
       </el-table-column>
       <el-table-column
         prop="Met"
-        label="Met"
+        label="甲硫氨酸"
         width="120">
       </el-table-column>
       <el-table-column
         prop="Ile"
-        label="Ile"
+        label="异亮氨酸"
         width="120">
       </el-table-column>
       <el-table-column
         prop="Leu"
-        label="Leu"
+        label="亮氨酸"
         width="120">
       </el-table-column>
       <el-table-column
         prop="Tyr"
-        label="Tyr"
+        label="酪氨酸"
         width="120">
       </el-table-column>
       <el-table-column
         prop="Phe"
-        label="Phe"
+        label="苯丙氨酸"
         width="120">
       </el-table-column>
       <el-table-column
         prop="Lys"
-        label="Lys"
+        label="赖氨酸"
         width="120">
       </el-table-column>
       <el-table-column
         prop="His"
-        label="His"
+        label="组氨酸"
         width="120">
       </el-table-column>
       <el-table-column
         prop="Arg"
-        label="Arg"
+        label="精氨酸"
         width="120">
       </el-table-column>
       <el-table-column
         prop="Pro"
-        label="Pro"
+        label="脯氨酸"
         width="120">
       </el-table-column>
       <el-table-column
@@ -402,7 +402,6 @@
         this.currentTabelData = this.tableData.slice(start, end)
       }
     },
-
     //用于获取后台返回的数据
     // created(){
     //   const _this = this
@@ -411,7 +410,6 @@
     //     _this.total = resp.data.totalElements
     //   })
     // },
-
     mounted() {
       const that = this
       axios.get('http://goat.oct-month.top/api/GoatMilkSample')
@@ -427,7 +425,6 @@
           console.error(error)
         })
     },
-
     data() {
       return {
         // total: null,

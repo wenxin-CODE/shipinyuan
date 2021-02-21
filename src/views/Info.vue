@@ -71,13 +71,13 @@
     </el-table-column>
   </el-table>
 
-  <el-pagination
-  background
-  layout="prev, pager, next"
-  :page-size="page_size"
-  :total="tableData.length"
-  @current-change="changePage">
-  </el-pagination>
+    <el-pagination
+      background
+      layout="prev, pager, next"
+      :page-size="page_size"
+      :total="tableData.length"
+      @current-change="changePage">
+    </el-pagination>
   </div>
 </template>
 

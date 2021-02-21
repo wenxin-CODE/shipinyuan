@@ -1,278 +1,441 @@
 <template>
-  <div class="search">
-    <el-col :span="12">
-      <span>搜索：</span>
-      <el-autocomplete
-        v-model="title"
-        class="inline-input"
-        :fetch-suggestions="querySearch"
-        placeholder="请输入内容"
-        :trigger-on-focus="false"
-        @select="handleSelect"
-      />
-    </el-col>
-    <!-- <el-form :model="ruleForm" :rules="rules" ref="ruleForm" label-width="250px" class="demo-ruleForm"> -->
-  <el-form-item label="公司编号" prop="id">
-    <el-input v-model="ruleForm['id']" disabled readOnly></el-input>
-  </el-form-item>
-  <el-form-item label="组织状态" prop="组织状态">
-    <el-input v-model="ruleForm['组织状态']"></el-input>
-  </el-form-item>
-  <el-form-item label="色泽" prop="色泽">
-    <el-input v-model="ruleForm['色泽']"></el-input>
-  </el-form-item>
-  <el-form-item label="水分" prop="水分">
-    <el-input v-model="ruleForm['水分']"></el-input>
-  </el-form-item>
-  <el-form-item label="蛋白质" prop="蛋白质">
-    <el-input v-model="ruleForm['蛋白质']"></el-input>
-  </el-form-item>
-  <el-form-item label="脂肪" prop="脂肪">
-    <el-input v-model="ruleForm['脂肪']"></el-input>
-  </el-form-item>
-  <el-form-item label="乳糖" prop="乳糖">
-    <el-input v-model="ruleForm['乳糖']"></el-input>
-  </el-form-item>
-  <el-form-item label="蔗糖" prop="蔗糖">
-    <el-input v-model="ruleForm['蔗糖']"></el-input>
-  </el-form-item>
-  <el-form-item label="维生素A" prop="维生素A">
-    <el-input v-model="ruleForm['维生素A']"></el-input>
-  </el-form-item>
-  <el-form-item label="维生素D" prop="维生素D">
-    <el-input v-model="ruleForm['维生素D']"></el-input>
-  </el-form-item>
-  <el-form-item label="维生素E" prop="维生素E">
-    <el-input v-model="ruleForm['维生素E']"></el-input>
-  </el-form-item>
-  <el-form-item label="维生素K1" prop="维生素K1">
-    <el-input v-model="ruleForm['维生素K1']"></el-input>
-  </el-form-item>
-  <el-form-item label="维生素B1" prop="维生素B1">
-    <el-input v-model="ruleForm['维生素B1']"></el-input>
-  </el-form-item>
-  <el-form-item label="维生素B2" prop="维生素B2">
-    <el-input v-model="ruleForm['维生素B2']"></el-input>
-  </el-form-item>
-  <el-form-item label="维生素B6" prop="维生素B6">
-    <el-input v-model="ruleForm['维生素B6']"></el-input>
-  </el-form-item>
-  <el-form-item label="维生素B12" prop="维生素B12">
-    <el-input v-model="ruleForm['维生素B12']"></el-input>
-  </el-form-item>
-  <el-form-item label="烟酸" prop="烟酸">
-    <el-input v-model="ruleForm['烟酸']"></el-input>
-  </el-form-item>
-  <el-form-item label="叶酸" prop="叶酸">
-    <el-input v-model="ruleForm['叶酸']"></el-input>
-  </el-form-item>
-  <el-form-item label="泛酸" prop="泛酸">
-    <el-input v-model="ruleForm['泛酸']"></el-input>
-  </el-form-item>
-  <el-form-item label="维生素C" prop="维生素C">
-    <el-input v-model="ruleForm['维生素C']"></el-input>
-  </el-form-item>
-  <el-form-item label="生物素" prop="生物素">
-    <el-input v-model="ruleForm['生物素']"></el-input>
-  </el-form-item>
-  <el-form-item label="胆碱" prop="胆碱">
-    <el-input v-model="ruleForm['胆碱']"></el-input>
-  </el-form-item>
-  <el-form-item label="铁" prop="铁">
-    <el-input v-model="ruleForm['铁']"></el-input>
-  </el-form-item>
-  <el-form-item label="钙" prop="钙">
-    <el-input v-model="ruleForm['钙']"></el-input>
-  </el-form-item>
-  <el-form-item label="锌" prop="锌">
-    <el-input v-model="ruleForm['锌']"></el-input>
-  </el-form-item>
-  <el-form-item label="磷" prop="磷">
-    <el-input v-model="ruleForm['磷']"></el-input>
-  </el-form-item>
-  <el-form-item label="钠" prop="钠">
-    <el-input v-model="ruleForm['钠']"></el-input>
-  </el-form-item>
-  <el-form-item label="钾" prop="钾">
-    <el-input v-model="ruleForm['钾']"></el-input>
-  </el-form-item>
-  <el-form-item label="镁" prop="镁">
-    <el-input v-model="ruleForm['镁']"></el-input>
-  </el-form-item>
-  <el-form-item label="铜" prop="铜">
-    <el-input v-model="ruleForm['铜']"></el-input>
-  </el-form-item>
-  <el-form-item label="锰" prop="锰">
-    <el-input v-model="ruleForm['锰']"></el-input>
-  </el-form-item>
-  <el-form-item label="硒" prop="硒">
-    <el-input v-model="ruleForm['硒']"></el-input>
-  </el-form-item>
-  <el-form-item label="碘" prop="碘">
-    <el-input v-model="ruleForm['碘']"></el-input>
-  </el-form-item>
-  <el-form-item label="铅" prop="铅">
-    <el-input v-model="ruleForm['铅']"></el-input>
-  </el-form-item>
-  <el-form-item label="铬" prop="铬">
-    <el-input v-model="ruleForm['铬']"></el-input>
-  </el-form-item>
-  <el-form-item label="镉" prop="镉">
-    <el-input v-model="ruleForm['镉']"></el-input>
-  </el-form-item>
-  <el-form-item label="总砷" prop="总砷">
-    <el-input v-model="ruleForm['总砷']"></el-input>
-  </el-form-item>
-  <el-form-item label="亚油酸" prop="亚油酸">
-    <el-input v-model="ruleForm['亚油酸']"></el-input>
-  </el-form-item>
-  <el-form-item label="α-亚麻酸" prop="α-亚麻酸">
-    <el-input v-model="ruleForm['α-亚麻酸']"></el-input>
-  </el-form-item>
-  <el-form-item label="亚油酸:α-亚麻酸" prop="亚油酸:α-亚麻酸">
-    <el-input v-model="ruleForm['亚油酸:α-亚麻酸']"></el-input>
-  </el-form-item>
-  <el-form-item label="DHA" prop="DHA">
-    <el-input v-model="ruleForm['DHA']"></el-input>
-  </el-form-item>
-  <el-form-item label="ARA" prop="ARA">
-    <el-input v-model="ruleForm['ARA']"></el-input>
-  </el-form-item>
-  <el-form-item label="月桂酸和肉豆蔻酸占总脂肪酸的比例" prop="月桂酸和肉豆蔻酸占总脂肪酸的比例">
-    <el-input v-model="ruleForm['月桂酸和肉豆蔻酸占总脂肪酸的比例']"></el-input>
-  </el-form-item>
-  <el-form-item label="反式脂肪酸与总脂肪酸的比值" prop="反式脂肪酸与总脂肪酸的比值">
-    <el-input v-model="ruleForm['反式脂肪酸与总脂肪酸的比值']"></el-input>
-  </el-form-item>
-  <el-form-item label="OPO" prop="OPO">
-    <el-input v-model="ruleForm['OPO']"></el-input>
-  </el-form-item>
-  <el-form-item label="氯" prop="氯">
-    <el-input v-model="ruleForm['氯']"></el-input>
-  </el-form-item>
-  <el-form-item label="酸度" prop="酸度">
-    <el-input v-model="ruleForm['酸度']"></el-input>
-  </el-form-item>
-  <el-form-item label="碳水化合物" prop="碳水化合物">
-    <el-input v-model="ruleForm['碳水化合物']"></el-input>
-  </el-form-item>
-  <el-form-item label="灰分" prop="灰分">
-    <el-input v-model="ruleForm['灰分']"></el-input>
-  </el-form-item>
-  <el-form-item label="Asp" prop="Asp">
-    <el-input v-model="ruleForm['Asp']"></el-input>
-  </el-form-item>
-  <el-form-item label="Thr" prop="Thr">
-    <el-input v-model="ruleForm['Thr']"></el-input>
-  </el-form-item>
-  <el-form-item label="Ser" prop="Ser">
-    <el-input v-model="ruleForm['Ser']"></el-input>
-  </el-form-item>
-  <el-form-item label="Glu" prop="Glu">
-    <el-input v-model="ruleForm['Glu']"></el-input>
-  </el-form-item>
-  <el-form-item label="Gly" prop="Gly">
-    <el-input v-model="ruleForm['Gly']"></el-input>
-  </el-form-item>
-  <el-form-item label="Ala" prop="Ala">
-    <el-input v-model="ruleForm['Ala']"></el-input>
-  </el-form-item>
-  <el-form-item label="Val" prop="Val">
-    <el-input v-model="ruleForm['Val']"></el-input>
-  </el-form-item>
-  <el-form-item label="Met" prop="Met">
-    <el-input v-model="ruleForm['Met']"></el-input>
-  </el-form-item>
-  <el-form-item label="Ile" prop="Ile">
-    <el-input v-model="ruleForm['Ile']"></el-input>
-  </el-form-item>
-  <el-form-item label="Leu" prop="Leu">
-    <el-input v-model="ruleForm['Leu']"></el-input>
-  </el-form-item>
-  <el-form-item label="Tyr" prop="Tyr">
-    <el-input v-model="ruleForm['Tyr']"></el-input>
-  </el-form-item>
-  <el-form-item label="Phe" prop="Phe">
-    <el-input v-model="ruleForm['Phe']"></el-input>
-  </el-form-item>
-  <el-form-item label="Lys" prop="Lys">
-    <el-input v-model="ruleForm['Lys']"></el-input>
-  </el-form-item>
-  <el-form-item label="His" prop="His">
-    <el-input v-model="ruleForm['His']"></el-input>
-  </el-form-item>
-  <el-form-item label="Arg" prop="Arg">
-    <el-input v-model="ruleForm['Arg']"></el-input>
-  </el-form-item>
-  <el-form-item label="Pro" prop="Pro">
-    <el-input v-model="ruleForm['Pro']"></el-input>
-  </el-form-item>
-  <el-form-item label="氨基酸总量" prop="氨基酸总量">
-    <el-input v-model="ruleForm['氨基酸总量']"></el-input>
-  </el-form-item>
-
+  <div class="all">
+     <div class="top">
+      <el-input
+        placeholder="输入检索的关键字"
+        size="medium"
+        v-model="searchForm.contentName"
+        @keyup.enter.native="search"
+      >
+        <template #suffix>
+          <i class="el-icon-search el-input__icon" @click="getListTable(1)"/>
+        </template>
+      </el-input>
+    </div>
+    <div class="mid">
+      <el-table
+      :data="currentTabelData"
+      border
+      style="width: 100%">
+      <el-table-column
+        fixed
+        prop="id"
+        label="公司编号"
+        width="150">
+      </el-table-column>
+      <el-table-column
+        prop="info"
+        label="来源"
+        width="120">
+      </el-table-column>
+      <el-table-column
+        prop="品种"
+        label="品种"
+        width="120">
+      </el-table-column>
+      <el-table-column
+        prop="组织状态"
+        label="组织状态"
+        width="150">
+      </el-table-column>
+      <el-table-column
+        prop="色泽"
+        label="色泽"
+        width="120">
+      </el-table-column>
+      <el-table-column
+        prop="水分"
+        label="水分"
+        width="120">
+      </el-table-column>
+      <el-table-column
+        prop="蛋白质"
+        label="蛋白质"
+        width="120">
+      </el-table-column>
+      <el-table-column
+        prop="脂肪"
+        label="脂肪"
+        width="120">
+      </el-table-column>
+      <el-table-column
+        prop="乳糖"
+        label="乳糖"
+        width="120">
+      </el-table-column>
+      <el-table-column
+        prop="蔗糖"
+        label="蔗糖"
+        width="120">
+      </el-table-column>
+      <el-table-column
+        prop="维生素A"
+        label="维生素A"
+        width="120">
+      </el-table-column>
+      <el-table-column
+        prop="维生素D"
+        label="维生素D"
+        width="120">
+      </el-table-column>
+      <el-table-column
+        prop="维生素E"
+        label="维生素E"
+        width="120">
+      </el-table-column>
+      <el-table-column
+        prop="维生素K1"
+        label="维生素K1"
+        width="120">
+      </el-table-column>
+      <el-table-column
+        prop="维生素B1"
+        label="维生素B1"
+        width="120">
+      </el-table-column>
+      <el-table-column
+        prop="维生素B2"
+        label="维生素B2"
+        width="120">
+      </el-table-column>
+      <el-table-column
+        prop="维生素B6"
+        label="维生素B6"
+        width="120">
+      </el-table-column>
+      <el-table-column
+        prop="维生素B12"
+        label="维生素B12"
+        width="120">
+      </el-table-column>
+      <el-table-column
+        prop="烟酸"
+        label="烟酸"
+        width="120">
+      </el-table-column>
+      <el-table-column
+        prop="叶酸"
+        label="叶酸"
+        width="120">
+      </el-table-column>
+      <el-table-column
+        prop="泛酸"
+        label="泛酸"
+        width="120">
+      </el-table-column>
+      <el-table-column
+        prop="维生素C"
+        label="维生素C"
+        width="120">
+      </el-table-column>
+      <el-table-column
+        prop="生物素"
+        label="生物素"
+        width="120">
+      </el-table-column>
+      <el-table-column
+        prop="胆碱"
+        label="胆碱"
+        width="120">
+      </el-table-column>
+      <el-table-column
+        prop="铁"
+        label="铁"
+        width="120">
+      </el-table-column>
+      <el-table-column
+        prop="钙"
+        label="钙"
+        width="120">
+      </el-table-column>
+      <el-table-column
+        prop="锌"
+        label="锌"
+        width="120">
+      </el-table-column>
+      <el-table-column
+        prop="磷"
+        label="磷"
+        width="120">
+      </el-table-column>
+      <el-table-column
+        prop="钠"
+        label="钠"
+        width="120">
+      </el-table-column>
+      <el-table-column
+        prop="钾"
+        label="钾"
+        width="120">
+      </el-table-column>
+      <el-table-column
+        prop="镁"
+        label="镁"
+        width="120">
+      </el-table-column>
+      <el-table-column
+        prop="铜"
+        label="铜"
+        width="120">
+      </el-table-column>
+      <el-table-column
+        prop="锰"
+        label="锰"
+        width="120">
+      </el-table-column>
+      <el-table-column
+        prop="硒"
+        label="硒"
+        width="120">
+      </el-table-column>
+      <el-table-column
+        prop="碘"
+        label="碘"
+        width="120">
+      </el-table-column>
+      <el-table-column
+        prop="铅"
+        label="铅"
+        width="120">
+      </el-table-column>
+      <el-table-column
+        prop="铬"
+        label="铬"
+        width="120">
+      </el-table-column>
+      <el-table-column
+        prop="镉"
+        label="镉"
+        width="120">
+      </el-table-column>
+      <el-table-column
+        prop="总砷"
+        label="总砷"
+        width="120">
+      </el-table-column>
+      <el-table-column
+        prop="亚油酸"
+        label="亚油酸"
+        width="120">
+      </el-table-column>
+      <el-table-column
+        prop="α-亚麻酸"
+        label="α-亚麻酸"
+        width="120">
+      </el-table-column>
+      <el-table-column
+        prop="亚油酸:α-亚麻酸"
+        label="亚油酸:α-亚麻酸"
+        width="120">
+      </el-table-column>
+      <el-table-column
+        prop="DHA"
+        label="DHA"
+        width="120">
+      </el-table-column>
+      <el-table-column
+        prop="ARA"
+        label="ARA"
+        width="120">
+      </el-table-column>
+      <el-table-column
+        prop="月桂酸和肉豆蔻酸占总脂肪酸的比例"
+        label="月桂酸和肉豆蔻酸占总脂肪酸的比例"
+        width="120">
+      </el-table-column>
+      <el-table-column
+        prop="反式脂肪酸与总脂肪酸的比值"
+        label="反式脂肪酸与总脂肪酸的比值"
+        width="120">
+      </el-table-column>
+      <el-table-column
+        prop="OPO"
+        label="OPO"
+        width="120">
+      </el-table-column>
+      <el-table-column
+        prop="氯"
+        label="氯"
+        width="120">
+      </el-table-column>
+      <el-table-column
+        prop="酸度"
+        label="酸度"
+        width="120">
+      </el-table-column>
+      <el-table-column
+        prop="碳水化合物"
+        label="碳水化合物"
+        width="120">
+      </el-table-column>
+      <el-table-column
+        prop="灰分"
+        label="灰分"
+        width="120">
+      </el-table-column>
+      <el-table-column
+        prop="Asp"
+        label="天冬氨酸"
+        width="220">
+      </el-table-column>
+      <el-table-column
+        prop="Thr"
+        label="苏氨酸"
+        width="120">
+      </el-table-column>
+      <el-table-column
+        prop="Ser"
+        label="丝氨酸"
+        width="120">
+      </el-table-column>
+      <el-table-column
+        prop="Glu"
+        label="谷氨酸"
+        width="120">
+      </el-table-column>
+      <el-table-column
+        prop="Gly"
+        label="甘氨酸"
+        width="120">
+      </el-table-column>
+      <el-table-column
+        prop="Ala"
+        label="丙氨酸"
+        width="120">
+      </el-table-column>
+      <el-table-column
+        prop="Val"
+        label="缬氨酸"
+        width="120">
+      </el-table-column>
+      <el-table-column
+        prop="Met"
+        label="甲硫氨酸"
+        width="120">
+      </el-table-column>
+      <el-table-column
+        prop="Ile"
+        label="异亮氨酸"
+        width="120">
+      </el-table-column>
+      <el-table-column
+        prop="Leu"
+        label="亮氨酸"
+        width="120">
+      </el-table-column>
+      <el-table-column
+        prop="Tyr"
+        label="酪氨酸"
+        width="120">
+      </el-table-column>
+      <el-table-column
+        prop="Phe"
+        label="苯丙氨酸"
+        width="120">
+      </el-table-column>
+      <el-table-column
+        prop="Lys"
+        label="赖氨酸"
+        width="120">
+      </el-table-column>
+      <el-table-column
+        prop="His"
+        label="组氨酸"
+        width="120">
+      </el-table-column>
+      <el-table-column
+        prop="Arg"
+        label="精氨酸"
+        width="120">
+      </el-table-column>
+      <el-table-column
+        prop="Pro"
+        label="脯氨酸"
+        width="120">
+      </el-table-column>
+      <el-table-column
+        prop="氨基酸总量"
+        label="氨基酸总量"
+        width="120">
+      </el-table-column>
+      <el-table-column
+        fixed="right"
+        label="操作"
+        width="100">
+        <template slot-scope="scope">
+          <el-button @click="edit(scope.row)" type="text" size="small">修改</el-button>
+          <el-button @click="deletebrand(scope.row)" type="text" size="small">删除</el-button>
+        </template>
+      </el-table-column>
+    </el-table>
+    </div>
+    <div class="footer">
+      <el-pagination
+        @size-change="handleSizeChange"
+        @current-change="handleCurrentChange"
+        :current-page="searchForm.pageIndex"
+        :page-sizes="[15,30,45,60]"
+        :page-size="searchForm.pageSize"
+        layout="total, prev, pager, next, jumper"
+        :total="totalCount"
+      ></el-pagination>
+    </div>
   </div>
 </template>
 
 <script>
-import axios from 'axios'
+//import { getQualitySafetyItems } from "@/services/index";
 export default {
-  components: {},
-  props: {},
-  data() {
-    return {
-      title: '',
-      selectItem: {},
-      tableData: []
-    }
+  data(){
+    return{
+      searchForm:{
+        id: 1, //默认页码是第一页
+        info: 15, //默认显示的条数
+        品种: "东风日产" //关键字
+      },
+       totalCount: 0,
+    };
   },
-  computed: {},
-  watch: {},
-  created() {},
-  mounted() {
-
-  },
-  methods: {
-    // async querySearch(queryString, cb) {
-    //   const data = await this.getData(queryString)
-    //   const result = data.map(item => {
-    //     return {
-    //       ...item,
-    //       value: item && item.name
-    //     }
-    //   })
-    //   // 调用 callback 返回建议列表的数据
-    //   cb(result)
-    // },
-    // async getData(queryString) {
-    //   const formData = new FormData()
-    //   formData.append('name', queryString)
-    //   const res = await axios({
-    //     method: 'post',
-    //     // url: 'http://139.159.147.237:8080/yxyz/type/findlikename',
-    //     data: formData,
-    //     headers: {
-    //     //   'Content-Type': 'application/x-www-form-urlencoded'
-    //     }
-    //   })
-    //   console.log(res, 'res')
-    //   return res.data.data
-    // },
-    // handleSelect(item) {
-    //   console.log(item)
-    //   this.selectItem = item
-    //   this.tableData = [item]
-    // }
-
+    methods:{
+      //获取列表
+    //   getListTable(){
+    //     getQualitySafetyItems(this.searchForm).then(({data,totalCount})=>{
+    //       this.tableData = data;
+    //       this.totalCount = totalCount
+    //     })
+    //   },
+       //搜索关键字
+    search() {
+      this.searchForm.pageIndex = 1; //初始化当前所在页数
+      this.getListTable(); //获取数据
+    },
+       // 每条条数变化的回调处理
+      handleSizeChange(val){
+        // val变化后的每页的条数
+        this.searchForm.pageSize = val;//更新每页的条数
+        this.getListTable();//重新获取列表数据
+      },
+      // 页码变化的回调处理
+      handleCurrentChange(val){
+        //val 变化后的页码
+        this.searchForm.pageIndex = val;
+         this.getListTable();//重新获取列表数据
+      }
   }
 }
 </script>
-
-<style scoped lang="scss">
-.search{
-    display:flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items:center;
+<style lang="scss" scoped>
+.top {
+    .el-button {
+      font-size: 15px;
+      margin: 30px 40px 20px 30px;
+    }
+.jk-table{
+  color:#ccc
+}
+.footer {
+    margin-top: 20px;
+    text-align: right;
+}
 }
 </style>
