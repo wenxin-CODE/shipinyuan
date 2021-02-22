@@ -11,6 +11,8 @@ import BrandUpdate from '../views/BrandUpdate'
 import InfoUpdate from '../views/InfoUpdate'
 import MilkUpdate from '../views/MilkUpdate'
 import BrandFind from '../views/BrandFind'
+import InfoFind from '../views/InfoFind'
+import MilkFind from '../views/MilkFind'
 
 Vue.use(VueRouter)
 
@@ -24,7 +26,7 @@ const routes = [
     children:[
       {
         path: '/Brand',
-        name: '产品查询',
+        name: '产品信息',
         component: Brand
       },
       {
@@ -60,7 +62,12 @@ const routes = [
         path: '/AddInfo',
         name: '添加信息',
         component: AddInfo
-      } 
+      },
+      {
+        path: '/InfoFind',
+        name: '查询信息',
+        component: InfoFind
+      }
     ]
   },
   {
@@ -83,6 +90,11 @@ const routes = [
         path: '/AddMilk',
         name: '添加生羊乳',
         component: AddMilk
+      },
+      {
+        path: '/MilkFind',
+        name: '查询羊奶',
+        component: MilkFind
       }
     ]
   },

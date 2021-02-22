@@ -28,22 +28,22 @@
     </el-table-column>
     <el-table-column
       prop="脂肪"
-      label="脂肪"
+      label="脂肪(g/100g)"
       width="300">
     </el-table-column>
     <el-table-column
       prop="蛋白质"
-      label="蛋白质"
+      label="蛋白质(g/100g)"
       width="120">
     </el-table-column>
     <el-table-column
       prop="非脂乳固体"
-      label="非脂乳固体"
+      label="非脂乳固体(g/100g)"
       width="300">
     </el-table-column>
     <el-table-column
       prop="冰点"
-      label="冰点"
+      label="冰点(℃)"
       width="300">
     </el-table-column>
     <el-table-column
@@ -73,7 +73,7 @@
     </el-table-column>
     <el-table-column
       prop="DBP"
-      label="DBP"
+      label="DBP(mg/kg)"
       width="300">
     </el-table-column>
 

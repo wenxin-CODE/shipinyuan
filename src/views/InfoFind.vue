@@ -1,6 +1,15 @@
 <template>
-  <div>
-    <el-table
+  <div class="all">
+     <div class="top">
+       <el-row :gutter="20">
+  <el-col :span="3"></el-col>
+  <el-col :span="16" :offset="5">
+ <el-input v-model="keywords" autocomplete="off" size="small" style="width: 350px;margin-right: 10px" placeholder="请输入关键字"></el-input>
+    <el-button size="small" type="primary" icon="el-icon-search" @click="searchBooksByKeyWord()">搜索</el-button></el-col>
+</el-row>
+    </div>
+    <div class="mid">
+      <el-table
       :data="currentTabelData"
       border
       style="width: 100%">
@@ -32,182 +41,182 @@
       </el-table-column>
       <el-table-column
         prop="水分"
-        label="水分(g/100g)"
+        label="水分"
         width="120">
       </el-table-column>
       <el-table-column
         prop="蛋白质"
-        label="蛋白质(g/100g)"
-        width="130">
+        label="蛋白质"
+        width="120">
       </el-table-column>
       <el-table-column
         prop="脂肪"
-        label="脂肪(g/100g)"
+        label="脂肪"
         width="120">
       </el-table-column>
       <el-table-column
         prop="乳糖"
-        label="乳糖(g/100g)"
+        label="乳糖"
         width="120">
       </el-table-column>
       <el-table-column
         prop="蔗糖"
-        label="蔗糖(g/100g)"
+        label="蔗糖"
         width="120">
       </el-table-column>
       <el-table-column
         prop="维生素A"
-        label="维生素A(µg /100g)"
+        label="维生素A"
         width="120">
       </el-table-column>
       <el-table-column
         prop="维生素D"
-        label="维生素D(µg/100g)"
+        label="维生素D"
         width="120">
       </el-table-column>
       <el-table-column
         prop="维生素E"
-        label="维生素E(mg/100g)"
+        label="维生素E"
         width="120">
       </el-table-column>
       <el-table-column
         prop="维生素K1"
-        label="维生素K1(µg/100g)"
+        label="维生素K1"
         width="120">
       </el-table-column>
       <el-table-column
         prop="维生素B1"
-        label="维生素B1(mg/100g)"
+        label="维生素B1"
         width="120">
       </el-table-column>
       <el-table-column
         prop="维生素B2"
-        label="维生素B2(mg/100g)"
+        label="维生素B2"
         width="120">
       </el-table-column>
       <el-table-column
         prop="维生素B6"
-        label="维生素B6(mg/100g)"
+        label="维生素B6"
         width="120">
       </el-table-column>
       <el-table-column
         prop="维生素B12"
-        label="维生素B12(µg/100g)"
+        label="维生素B12"
         width="120">
       </el-table-column>
       <el-table-column
         prop="烟酸"
-        label="烟酸(µg/100g)"
+        label="烟酸"
         width="120">
       </el-table-column>
       <el-table-column
         prop="叶酸"
-        label="叶酸(µg/100g)"
+        label="叶酸"
         width="120">
       </el-table-column>
       <el-table-column
         prop="泛酸"
-        label="泛酸(mg/100g)"
+        label="泛酸"
         width="120">
       </el-table-column>
       <el-table-column
         prop="维生素C"
-        label="维生素C(mg/100g)"
+        label="维生素C"
         width="120">
       </el-table-column>
       <el-table-column
         prop="生物素"
-        label="生物素(µg/100g)"
+        label="生物素"
         width="120">
       </el-table-column>
       <el-table-column
         prop="胆碱"
-        label="胆碱(mg/100g)"
+        label="胆碱"
         width="120">
       </el-table-column>
       <el-table-column
         prop="铁"
-        label="铁(mg/kg)"
+        label="铁"
         width="120">
       </el-table-column>
       <el-table-column
         prop="钙"
-        label="钙(mg/kg)"
+        label="钙"
         width="120">
       </el-table-column>
       <el-table-column
         prop="锌"
-        label="锌(mg/kg)"
+        label="锌"
         width="120">
       </el-table-column>
       <el-table-column
         prop="磷"
-        label="磷(mg/100g)"
+        label="磷"
         width="120">
       </el-table-column>
       <el-table-column
         prop="钠"
-        label="钠(mg/100g)"
+        label="钠"
         width="120">
       </el-table-column>
       <el-table-column
         prop="钾"
-        label="钾(mg/100g)"
+        label="钾"
         width="120">
       </el-table-column>
       <el-table-column
         prop="镁"
-        label="镁(mg/kg)"
+        label="镁"
         width="120">
       </el-table-column>
       <el-table-column
         prop="铜"
-        label="铜(mg/kg)"
+        label="铜"
         width="120">
       </el-table-column>
       <el-table-column
         prop="锰"
-        label="锰(mg/kg)"
+        label="锰"
         width="120">
       </el-table-column>
       <el-table-column
         prop="硒"
-        label="硒(mg/kg)"
+        label="硒"
         width="120">
       </el-table-column>
       <el-table-column
         prop="碘"
-        label="碘(mg/kg)"
+        label="碘"
         width="120">
       </el-table-column>
       <el-table-column
         prop="铅"
-        label="铅(mg/kg)"
+        label="铅"
         width="120">
       </el-table-column>
       <el-table-column
         prop="铬"
-        label="铬(mg/kg)"
+        label="铬"
         width="120">
       </el-table-column>
       <el-table-column
         prop="镉"
-        label="镉(mg/kg)"
+        label="镉"
         width="120">
       </el-table-column>
       <el-table-column
         prop="总砷"
-        label="总砷(mg/kg)"
+        label="总砷"
         width="120">
       </el-table-column>
       <el-table-column
         prop="亚油酸"
-        label="亚油酸(g/100g)"
+        label="亚油酸"
         width="120">
       </el-table-column>
       <el-table-column
         prop="α-亚麻酸"
-        label="α-亚麻酸(g/100g)"
+        label="α-亚麻酸"
         width="120">
       </el-table-column>
       <el-table-column
@@ -217,132 +226,132 @@
       </el-table-column>
       <el-table-column
         prop="DHA"
-        label="DHA(g/100g)"
+        label="DHA"
         width="120">
       </el-table-column>
       <el-table-column
         prop="ARA"
-        label="ARA(g/100g)"
+        label="ARA"
         width="120">
       </el-table-column>
       <el-table-column
         prop="月桂酸和肉豆蔻酸占总脂肪酸的比例"
-        label="月桂酸和肉豆蔻酸占总脂肪酸的比例(总脂肪酸%)"
+        label="月桂酸和肉豆蔻酸占总脂肪酸的比例"
         width="120">
       </el-table-column>
       <el-table-column
         prop="反式脂肪酸与总脂肪酸的比值"
-        label="反式脂肪酸与总脂肪酸的比值(总脂肪酸%)"
+        label="反式脂肪酸与总脂肪酸的比值"
         width="120">
       </el-table-column>
       <el-table-column
         prop="OPO"
-        label="OPO(g/100g)"
+        label="OPO"
         width="120">
       </el-table-column>
       <el-table-column
         prop="氯"
-        label="氯(%)"
+        label="氯"
         width="120">
       </el-table-column>
       <el-table-column
         prop="酸度"
-        label="酸度(OT)"
+        label="酸度"
         width="120">
       </el-table-column>
       <el-table-column
         prop="碳水化合物"
-        label="碳水化合物(g/100g)"
+        label="碳水化合物"
         width="120">
       </el-table-column>
       <el-table-column
         prop="灰分"
-        label="灰分(g/100g)"
+        label="灰分"
         width="120">
       </el-table-column>
       <el-table-column
         prop="Asp"
-        label="天冬氨酸(mg/kg)"
+        label="天冬氨酸"
         width="220">
       </el-table-column>
       <el-table-column
         prop="Thr"
-        label="苏氨酸(mg/kg)"
+        label="苏氨酸"
         width="120">
       </el-table-column>
       <el-table-column
         prop="Ser"
-        label="丝氨酸(mg/kg)"
+        label="丝氨酸"
         width="120">
       </el-table-column>
       <el-table-column
         prop="Glu"
-        label="谷氨酸(mg/kg)"
+        label="谷氨酸"
         width="120">
       </el-table-column>
       <el-table-column
         prop="Gly"
-        label="甘氨酸(mg/kg)"
+        label="甘氨酸"
         width="120">
       </el-table-column>
       <el-table-column
         prop="Ala"
-        label="丙氨酸(mg/kg)"
+        label="丙氨酸"
         width="120">
       </el-table-column>
       <el-table-column
         prop="Val"
-        label="缬氨酸(mg/kg)"
+        label="缬氨酸"
         width="120">
       </el-table-column>
       <el-table-column
         prop="Met"
-        label="甲硫氨酸(mg/kg)"
+        label="甲硫氨酸"
         width="120">
       </el-table-column>
       <el-table-column
         prop="Ile"
-        label="异亮氨酸(mg/kg)"
+        label="异亮氨酸"
         width="120">
       </el-table-column>
       <el-table-column
         prop="Leu"
-        label="亮氨酸(mg/kg)"
+        label="亮氨酸"
         width="120">
       </el-table-column>
       <el-table-column
         prop="Tyr"
-        label="酪氨酸(mg/kg)"
+        label="酪氨酸"
         width="120">
       </el-table-column>
       <el-table-column
         prop="Phe"
-        label="苯丙氨酸(mg/kg)"
+        label="苯丙氨酸"
         width="120">
       </el-table-column>
       <el-table-column
         prop="Lys"
-        label="赖氨酸(mg/kg)"
+        label="赖氨酸"
         width="120">
       </el-table-column>
       <el-table-column
         prop="His"
-        label="组氨酸(mg/kg)"
+        label="组氨酸"
         width="120">
       </el-table-column>
       <el-table-column
         prop="Arg"
-        label="精氨酸(mg/kg)"
+        label="精氨酸"
         width="120">
       </el-table-column>
       <el-table-column
         prop="Pro"
-        label="脯氨酸(mg/kg)"
+        label="脯氨酸"
         width="120">
       </el-table-column>
       <el-table-column
         prop="氨基酸总量"
-        label="氨基酸总量(mg/kg)"
+        label="氨基酸总量"
         width="120">
       </el-table-column>
       <el-table-column
@@ -355,84 +364,67 @@
         </template>
       </el-table-column>
     </el-table>
-
-    <el-pagination
-      background
-      layout="prev, pager, next"
-      :page-size="page_size"
-      :total="tableData.length"
-      @current-change="changePage">
-    </el-pagination>
+    </div>
+    <div class="footer">
+      <el-pagination
+        @current-change="changePage"
+        :current-page="searchForm.pageIndex"
+        :page-size="page_size"
+        layout="total, prev, pager, next, jumper"
+        :total="totalCount"
+      ></el-pagination>
+    </div>
   </div>
 </template>
 
 <script>
-  export default {
-    methods: {
-      deletebrand(row){
-        // console.log(row.id);
-        const _this = this
-        axios.delete('http://goat.oct-month.top/api/GoatMilkSample/' + row.id)
-          .then(resp => {
-            _this.$alert(row.id+'删除成功','消息',{
-              confirmButtonText: '确定',
-              callback: action => {
-                window.location.reload()
-                //动态刷新
-              }
-            })
-        })
-        .catch(error => {
-          console.error(error);
-        })
+//import { getQualitySafetyItems } from "@/services/index";
+export default {
+  data(){
+    return{
+      searchForm:{
+        id: 1, //默认页码是第一页
+        info: 15, //默认显示的条数
+        品种: "东风日产" //关键字
       },
-      edit(row) {
-        this.$router.push({
-          path: '/BrandUpdate',
-          query:{
-            row: row
-            //跳转到修改页面，利用id查询数据库对应信息显示出来
+       totalCount: 0,
+    };
+  },
+
+  methods:{
+    searchBooksByKeyWord() {
+      var _this = this
+      this.$axios
+        .post('/search', {
+          keywords: this.keywords
+        }).then(resp => {
+          if (resp && resp.status === 200) {
+            _this.books = resp.data
           }
         })
-        //row.id
-      },
-      changePage(currentPage) {
-        var start = this.page_size * (currentPage - 1)
-        var end = start + this.page_size
-        this.currentTabelData = this.tableData.slice(start, end)
-      }
     },
-    //用于获取后台返回的数据
-    // created(){
-    //   const _this = this
-    //   axios.get('').then(function (resp){
-    //     _this.tableData = resp.data.content
-    //     _this.total = resp.data.totalElements
-    //   })
-    // },
-    mounted() {
-      const that = this
-      axios.get('http://goat.oct-month.top/api/GoatMilkSample')
-        .then(res => {
-          if (200 <= res.status < 300)
-          {
-            that.tableData = res.data
-            // console.log(that.tableData);
-            that.changePage(1)
-          }
-        })
-        .catch(error => {
-          console.error(error)
-        })
-    },
-    data() {
-      return {
-        // total: null,
-        // tableData: null,
-        tableData: [],
-        currentTabelData: [],
-        page_size: 5
-      }
+    
+    changePage(currentPage) {
+      var start = this.page_size * (currentPage - 1)
+      var end = start + this.page_size
+      this.currentTabelData = this.tableData.slice(start, end)
     }
   }
+}
 </script>
+
+<style lang="scss" scoped>
+.top {
+    .el-button {
+      font-size: 15px;
+      margin: 30px 40px 20px 30px;
+    }
+.jk-table{
+  color:#ccc
+}
+.footer {
+    margin-top: 20px;
+    text-align: right;
+}
+}
+</style>

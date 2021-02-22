@@ -150,52 +150,52 @@
   <el-form-item label="灰分" prop="灰分">
     <el-input v-model="ruleForm['灰分']"></el-input>
   </el-form-item>
-  <el-form-item label="Asp" prop="Asp">
+  <el-form-item label="天冬氨酸" prop="Asp">
     <el-input v-model="ruleForm['Asp']"></el-input>
   </el-form-item>
-  <el-form-item label="Thr" prop="Thr">
+  <el-form-item label="苏氨酸" prop="Thr">
     <el-input v-model="ruleForm['Thr']"></el-input>
   </el-form-item>
-  <el-form-item label="Ser" prop="Ser">
+  <el-form-item label="丝氨酸" prop="Ser">
     <el-input v-model="ruleForm['Ser']"></el-input>
   </el-form-item>
-  <el-form-item label="Glu" prop="Glu">
+  <el-form-item label="谷氨酸" prop="Glu">
     <el-input v-model="ruleForm['Glu']"></el-input>
   </el-form-item>
-  <el-form-item label="Gly" prop="Gly">
+  <el-form-item label="甘氨酸" prop="Gly">
     <el-input v-model="ruleForm['Gly']"></el-input>
   </el-form-item>
-  <el-form-item label="Ala" prop="Ala">
+  <el-form-item label="丙氨酸" prop="Ala">
     <el-input v-model="ruleForm['Ala']"></el-input>
   </el-form-item>
-  <el-form-item label="Val" prop="Val">
+  <el-form-item label="缬氨酸" prop="Val">
     <el-input v-model="ruleForm['Val']"></el-input>
   </el-form-item>
-  <el-form-item label="Met" prop="Met">
+  <el-form-item label="甲硫氨酸" prop="Met">
     <el-input v-model="ruleForm['Met']"></el-input>
   </el-form-item>
-  <el-form-item label="Ile" prop="Ile">
+  <el-form-item label="异亮氨酸" prop="Ile">
     <el-input v-model="ruleForm['Ile']"></el-input>
   </el-form-item>
-  <el-form-item label="Leu" prop="Leu">
+  <el-form-item label="亮氨酸" prop="Leu">
     <el-input v-model="ruleForm['Leu']"></el-input>
   </el-form-item>
-  <el-form-item label="Tyr" prop="Tyr">
+  <el-form-item label="酪氨酸" prop="Tyr">
     <el-input v-model="ruleForm['Tyr']"></el-input>
   </el-form-item>
-  <el-form-item label="Phe" prop="Phe">
+  <el-form-item label="苯丙氨酸" prop="Phe">
     <el-input v-model="ruleForm['Phe']"></el-input>
   </el-form-item>
-  <el-form-item label="Lys" prop="Lys">
+  <el-form-item label="赖氨酸" prop="Lys">
     <el-input v-model="ruleForm['Lys']"></el-input>
   </el-form-item>
-  <el-form-item label="His" prop="His">
+  <el-form-item label="组氨酸" prop="His">
     <el-input v-model="ruleForm['His']"></el-input>
   </el-form-item>
-  <el-form-item label="Arg" prop="Arg">
+  <el-form-item label="精氨酸" prop="Arg">
     <el-input v-model="ruleForm['Arg']"></el-input>
   </el-form-item>
-  <el-form-item label="Pro" prop="Pro">
+  <el-form-item label="脯氨酸" prop="Pro">
     <el-input v-model="ruleForm['Pro']"></el-input>
   </el-form-item>
   <el-form-item label="氨基酸总量" prop="氨基酸总量">
