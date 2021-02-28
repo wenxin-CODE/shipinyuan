@@ -76,7 +76,6 @@
       label="DBP(mg/kg)"
       width="120">
     </el-table-column>
-
     <el-table-column
       fixed="right"
       label="操作"
