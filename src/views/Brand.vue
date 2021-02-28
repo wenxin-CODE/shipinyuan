@@ -58,72 +58,72 @@
       <el-table-column
         prop="维生素A"
         label="维生素A(µg /100g)"
-        width="120">
+        width="150">
       </el-table-column>
       <el-table-column
         prop="维生素D"
         label="维生素D(µg/100g)"
-        width="120">
+        width="150">
       </el-table-column>
       <el-table-column
         prop="维生素E"
         label="维生素E(mg/100g)"
-        width="120">
+        width="150">
       </el-table-column>
       <el-table-column
         prop="维生素K1"
         label="维生素K1(µg/100g)"
-        width="120">
+        width="170">
       </el-table-column>
       <el-table-column
         prop="维生素B1"
         label="维生素B1(mg/100g)"
-        width="120">
+        width="170">
       </el-table-column>
       <el-table-column
         prop="维生素B2"
         label="维生素B2(mg/100g)"
-        width="120">
+        width="170">
       </el-table-column>
       <el-table-column
         prop="维生素B6"
         label="维生素B6(mg/100g)"
-        width="120">
+        width="170">
       </el-table-column>
       <el-table-column
         prop="维生素B12"
         label="维生素B12(µg/100g)"
-        width="120">
+        width="170">
       </el-table-column>
       <el-table-column
         prop="烟酸"
         label="烟酸(µg/100g)"
-        width="120">
+        width="130">
       </el-table-column>
       <el-table-column
         prop="叶酸"
         label="叶酸(µg/100g)"
-        width="120">
+        width="130">
       </el-table-column>
       <el-table-column
         prop="泛酸"
         label="泛酸(mg/100g)"
-        width="120">
+        width="130">
       </el-table-column>
       <el-table-column
         prop="维生素C"
         label="维生素C(mg/100g)"
-        width="120">
+        width="150">
       </el-table-column>
       <el-table-column
         prop="生物素"
         label="生物素(µg/100g)"
-        width="120">
+        width="140">
       </el-table-column>
       <el-table-column
         prop="胆碱"
         label="胆碱(mg/100g)"
-        width="120">
+        width="130">
       </el-table-column>
       <el-table-column
         prop="铁"
@@ -203,17 +203,17 @@
       <el-table-column
         prop="亚油酸"
         label="亚油酸(g/100g)"
-        width="120">
+        width="130">
       </el-table-column>
       <el-table-column
         prop="α-亚麻酸"
         label="α-亚麻酸(g/100g)"
-        width="120">
+        width="150">
       </el-table-column>
       <el-table-column
         prop="亚油酸:α-亚麻酸"
         label="亚油酸:α-亚麻酸"
-        width="120">
+        width="130">
       </el-table-column>
       <el-table-column
         prop="DHA"
@@ -228,7 +228,7 @@
       <el-table-column
         prop="月桂酸和肉豆蔻酸占总脂肪酸的比例"
         label="月桂酸和肉豆蔻酸占总脂肪酸的比例(总脂肪酸%)"
-        width="120">
+        width="140">
       </el-table-column>
       <el-table-column
         prop="反式脂肪酸与总脂肪酸的比值"
@@ -253,7 +253,7 @@
       <el-table-column
         prop="碳水化合物"
         label="碳水化合物(g/100g)"
-        width="120">
+        width="170">
       </el-table-column>
       <el-table-column
         prop="灰分"
@@ -268,82 +268,82 @@
       <el-table-column
         prop="Thr"
         label="苏氨酸(mg/kg)"
-        width="120">
+        width="130">
       </el-table-column>
       <el-table-column
         prop="Ser"
         label="丝氨酸(mg/kg)"
-        width="120">
+        width="130">
       </el-table-column>
       <el-table-column
         prop="Glu"
         label="谷氨酸(mg/kg)"
-        width="120">
+        width="130">
       </el-table-column>
       <el-table-column
         prop="Gly"
         label="甘氨酸(mg/kg)"
-        width="120">
+        width="130">
       </el-table-column>
       <el-table-column
         prop="Ala"
         label="丙氨酸(mg/kg)"
-        width="120">
+        width="130">
       </el-table-column>
       <el-table-column
         prop="Val"
         label="缬氨酸(mg/kg)"
-        width="120">
+        width="130">
       </el-table-column>
       <el-table-column
         prop="Met"
         label="甲硫氨酸(mg/kg)"
-        width="120">
+        width="140">
       </el-table-column>
       <el-table-column
         prop="Ile"
         label="异亮氨酸(mg/kg)"
-        width="120">
+        width="140">
       </el-table-column>
       <el-table-column
         prop="Leu"
         label="亮氨酸(mg/kg)"
-        width="120">
+        width="130">
       </el-table-column>
       <el-table-column
         prop="Tyr"
         label="酪氨酸(mg/kg)"
-        width="120">
+        width="130">
       </el-table-column>
       <el-table-column
         prop="Phe"
         label="苯丙氨酸(mg/kg)"
-        width="120">
+        width="140">
       </el-table-column>
       <el-table-column
         prop="Lys"
         label="赖氨酸(mg/kg)"
-        width="120">
+        width="130">
       </el-table-column>
       <el-table-column
         prop="His"
         label="组氨酸(mg/kg)"
-        width="120">
+        width="130">
       </el-table-column>
       <el-table-column
         prop="Arg"
         label="精氨酸(mg/kg)"
-        width="120">
+        width="130">
       </el-table-column>
       <el-table-column
         prop="Pro"
         label="脯氨酸(mg/kg)"
-        width="120">
+        width="130">
       </el-table-column>
       <el-table-column
         prop="氨基酸总量"
         label="氨基酸总量(mg/kg)"
-        width="120">
+        width="150">
       </el-table-column>
       <el-table-column
         fixed="right"

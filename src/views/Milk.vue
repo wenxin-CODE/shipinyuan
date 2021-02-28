@@ -19,62 +19,62 @@
     <el-table-column
       prop="奶站"
       label="奶站"
-      width="300">
+      width="120">
     </el-table-column>
     <el-table-column
       prop="感官"
       label="感官"
-      width="300">
+      width="120">
     </el-table-column>
     <el-table-column
       prop="脂肪"
       label="脂肪(g/100g)"
-      width="300">
+      width="120">
     </el-table-column>
     <el-table-column
       prop="蛋白质"
       label="蛋白质(g/100g)"
-      width="120">
+      width="130">
     </el-table-column>
     <el-table-column
       prop="非脂乳固体"
       label="非脂乳固体(g/100g)"
-      width="300">
+      width="160">
     </el-table-column>
     <el-table-column
       prop="冰点"
       label="冰点(℃)"
-      width="300">
+      width="120">
     </el-table-column>
     <el-table-column
       prop="酸度"
       label="酸度"
-      width="300">
+      width="120">
     </el-table-column>
     <el-table-column
       prop="抗生素"
       label="抗生素"
-      width="300">
+      width="120">
     </el-table-column>
     <el-table-column
       prop="β-内酰胺酶"
       label="β-内酰胺酶"
-      width="300">
+      width="120">
     </el-table-column>
     <el-table-column
       prop="酒精实验"
       label="酒精实验"
-      width="300">
+      width="120">
     </el-table-column>
     <el-table-column
       prop="煮沸实验"
       label="煮沸实验"
-      width="300">
+      width="120">
     </el-table-column>
     <el-table-column
       prop="DBP"
       label="DBP(mg/kg)"
-      width="300">
+      width="120">
     </el-table-column>
 
     <el-table-column

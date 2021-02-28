@@ -28,12 +28,12 @@
     <el-table-column
       prop="脂肪"
       label="脂肪(g/100g)"
-      width="300">
+      width="120">
     </el-table-column>
     <el-table-column
       prop="蛋白质"
       label="蛋白质(g/100g)"
-      width="120">
+      width="130">
     </el-table-column>
     <el-table-column
       prop="水分"
@@ -58,7 +58,7 @@
     <el-table-column
       prop="DBP"
       label="DBP(g/100g)"
-      width="300">
+      width="120">
     </el-table-column>
     <el-table-column
       fixed="right"
