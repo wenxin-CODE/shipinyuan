@@ -87,7 +87,7 @@
       deleteinfo(row){
         //console.log(row.id);
         const _this = this
-        axios.delete('http://goat.oct-month.top/api/GoatMilkSample2/' + row.id)
+        axios.delete('http://goat.oct-month.top/api/GoatMilkTestingSampleProvince/' + row.id)
           .then(resp => {
             _this.$alert(row.id + '删除成功','消息', {
               confirmButtonText: '确定',
@@ -120,7 +120,7 @@
 
     mounted() {
       const that = this
-      axios.get('http://goat.oct-month.top/api/GoatMilkSample2')
+      axios.get('http://goat.oct-month.top/api/GoatMilkTestingSampleProvince')
         .then(res => {
           if (200 <= res.status < 300)
           {

@@ -292,7 +292,7 @@
       submitForm(formName) {
         const _this = this
         //与后端交互 
-        axios.post('http://goat.oct-month.top/api/GoatMilkSample', this.ruleForm)
+        axios.post('http://goat.oct-month.top/api/GoatMilkTestingSampleInternational', this.ruleForm)
           .then(res => {
             if(200 <= res.status < 300) {
                 _this.$message('添加成功')

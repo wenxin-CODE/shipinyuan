@@ -80,7 +80,7 @@
       submitForm(formName) {
           const _this = this
         //与后端交互 
-        axios.put('http://goat.oct-month.top/api/GoatMilkSample', this.ruleForm)
+        axios.put('http://goat.oct-month.top/api/GoatMilkTestingSampleInternational', this.ruleForm)
           .then(res => {
             if(res.data == 1) {
                 _this.$message('修改成功')

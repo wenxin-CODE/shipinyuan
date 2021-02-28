@@ -372,7 +372,7 @@
       deletebrand(row){
         // console.log(row.id);
         const _this = this
-        axios.delete('http://goat.oct-month.top/api/GoatMilkSample/' + row.id)
+        axios.delete('http://goat.oct-month.top/api/GoatMilkTestingSampleInternational/' + row.id)
           .then(resp => {
             _this.$alert(row.id+'删除成功','消息',{
               confirmButtonText: '确定',
@@ -412,7 +412,7 @@
     // },
     mounted() {
       const that = this
-      axios.get('http://goat.oct-month.top/api/GoatMilkSample')
+      axios.get('http://goat.oct-month.top/api/GoatMilkTestingSampleInternational')
         .then(res => {
           if (200 <= res.status < 300)
           {
