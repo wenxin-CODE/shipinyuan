@@ -298,7 +298,7 @@
       submitForm(formName) {
         const _this = this
         //与后端交互 
-        axios.put('http://goat.oct-month.top/api/GoatMilkTestingSampleInternational', this.ruleForm)
+        axios.put('http://goat.oct-month.top/api/GoatMilkTestingSampleInternational/', this.ruleForm)
           .then(res => {
             if(200 <= res.status < 300) {
                 _this.$message('修改成功')

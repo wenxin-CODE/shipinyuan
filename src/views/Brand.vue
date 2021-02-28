@@ -412,7 +412,7 @@
     // },
     mounted() {
       const that = this
-      axios.get('http://goat.oct-month.top/api/GoatMilkTestingSampleInternational')
+      axios.get('http://goat.oct-month.top/api/GoatMilkTestingSampleInternational/')
         .then(res => {
           if (200 <= res.status < 300)
           {

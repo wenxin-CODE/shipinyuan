@@ -120,7 +120,7 @@
 
     mounted() {
       const that = this
-      axios.get('http://goat.oct-month.top/api/GoatMilkTestingSampleProvince')
+      axios.get('http://goat.oct-month.top/api/GoatMilkTestingSampleProvince/')
         .then(res => {
           if (200 <= res.status < 300)
           {

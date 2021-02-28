@@ -67,7 +67,7 @@
     methods: {
       submitForm(formName) {
           const _this = this
-          axios.put('http://goat.oct-month.top/api/GoatMilkTestingSampleProvince', this.ruleForm)
+          axios.put('http://goat.oct-month.top/api/GoatMilkTestingSampleProvince/', this.ruleForm)
             .then(res => {
               if(200 <= res.status < 300) {
                   _this.$message('修改成功')
