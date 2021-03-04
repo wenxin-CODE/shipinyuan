@@ -1,7 +1,7 @@
 <template>
   <div class="dashboard-container">
     <div class="btn-wrap">
-      <el-select v-model="value" placeholder="营养指标" style="width:400px">
+      <el-select v-model="searchMetaData.营养指标.key" placeholder="营养指标" style="width:400px">
         <el-option label="蛋白质" value="蛋白质"></el-option>
         <el-option label="脂肪" value="脂肪"></el-option>
         <el-option label="非脂乳固体" value="非脂乳固体"></el-option>
@@ -11,15 +11,12 @@
 
       <el-form :inline="true" class="demo-form-inline">
         <el-form-item>
-          <el-input placeholder="请输入搜索关键字" class="input" />
+          <el-input v-model="searchMetaData.营养指标.value" placeholder="请输入搜索关键字" class="input" />
         </el-form-item>
-        
       </el-form>
 
-
-
       
-      <el-select v-model="value" placeholder="维生素类" style="width:400px">
+      <el-select v-model="searchMetaData.维生素类.key" placeholder="维生素类" style="width:400px">
         <el-option label="维生素A" value="维生素A"></el-option>
         <el-option label="维生素E" value="维生素E"></el-option>
         <el-option label="维生素K1" value="维生素K1"></el-option>
@@ -35,11 +32,11 @@
 
       <el-form :inline="true" class="demo-form-inline">
         <el-form-item>
-          <el-input placeholder="请输入搜索关键字" class="input" />
+          <el-input v-model="searchMetaData.维生素类.value" placeholder="请输入搜索关键字" class="input" />
         </el-form-item>
         
       </el-form>
-      <el-select v-model="value" placeholder="矿物质类" style="width:400px">
+      <el-select v-model="searchMetaData.矿物质类.key" placeholder="矿物质类" style="width:400px">
         <el-option label="钙" value="钙"></el-option>
         <el-option label="铁" value="铁"></el-option>
         <el-option label="锌" value="锌"></el-option>
@@ -56,11 +53,11 @@
 
       <el-form :inline="true" class="demo-form-inline">
         <el-form-item>
-          <el-input placeholder="请输入搜索关键字" class="input" />
+          <el-input v-model="searchMetaData.矿物质类.value" placeholder="请输入搜索关键字" class="input" />
         </el-form-item>
       </el-form>
 
-      <el-select v-model="value" placeholder="氨基酸类" style="width:400px">
+      <el-select v-model="searchMetaData.氨基酸类.key" placeholder="氨基酸类" style="width:400px">
         <el-option label="Asp" value="Asp"></el-option>
         <el-option label="Thr" value="Thr"></el-option>
         <el-option label="Ser" value="Ser"></el-option>
@@ -82,7 +79,7 @@
 
       <el-form :inline="true" class="demo-form-inline">
         <el-form-item>
-          <el-input placeholder="请输入搜索关键字" class="input" />
+          <el-input v-model="searchMetaData.氨基酸类.value" placeholder="请输入搜索关键字" class="input" />
         </el-form-item>
         
       </el-form>
@@ -90,80 +87,433 @@
 
       <el-form :inline="true" class="demo-form-inline">
       <el-form-item>
-          <el-button type="primary" @click="getData">查询</el-button>
+          <el-button type="primary" @click="doSearch">查询</el-button>
         </el-form-item>
       </el-form>
 
 
-
     </div>
-    <el-table stripe :data="tableData" style="width: 100%">
-      <el-table-column width="55">
-        <template label="选择" slot-scope="scope">
-          <el-checkbox  v-model="scope.row.checked"></el-checkbox>
-        </template>
+    <el-table
+      :data="tableData"
+      border
+      style="width: 100%">
+      <el-table-column
+        fixed
+        prop="id"
+        label="公司编号"
+        width="150">
       </el-table-column>
-      <el-table-column label="id" width="180">
+      <el-table-column
+        prop="info"
+        label="来源"
+        width="120">
+      </el-table-column>
+      <el-table-column
+        prop="品种"
+        label="品种"
+        width="120">
+      </el-table-column>
+      <el-table-column
+        prop="组织状态"
+        label="组织状态"
+        width="150">
+      </el-table-column>
+      <el-table-column
+        prop="色泽"
+        label="色泽"
+        width="120">
+      </el-table-column>
+      <el-table-column
+        prop="水分"
+        label="水分(g/100g)"
+        width="120">
+      </el-table-column>
+      <el-table-column
+        prop="蛋白质"
+        label="蛋白质(g/100g)"
+        width="130">
+      </el-table-column>
+      <el-table-column
+        prop="脂肪"
+        label="脂肪(g/100g)"
+        width="120">
+      </el-table-column>
+      <el-table-column
+        prop="乳糖"
+        label="乳糖(g/100g)"
+        width="120">
+      </el-table-column>
+      <el-table-column
+        prop="蔗糖"
+        label="蔗糖(g/100g)"
+        width="120">
+      </el-table-column>
+      <el-table-column
+        prop="维生素A"
+        label="维生素A(µg /100g)"
+        width="150">
+      </el-table-column>
+      <el-table-column
+        prop="维生素D"
+        label="维生素D(µg/100g)"
+        width="150">
+      </el-table-column>
+      <el-table-column
+        prop="维生素E"
+        label="维生素E(mg/100g)"
+        width="150">
+      </el-table-column>
+      <el-table-column
+        prop="维生素K1"
+        label="维生素K1(µg/100g)"
+        width="170">
+      </el-table-column>
+      <el-table-column
+        prop="维生素B1"
+        label="维生素B1(mg/100g)"
+        width="170">
+      </el-table-column>
+      <el-table-column
+        prop="维生素B2"
+        label="维生素B2(mg/100g)"
+        width="170">
+      </el-table-column>
+      <el-table-column
+        prop="维生素B6"
+        label="维生素B6(mg/100g)"
+        width="170">
+      </el-table-column>
+      <el-table-column
+        prop="维生素B12"
+        label="维生素B12(µg/100g)"
+        width="170">
+      </el-table-column>
+      <el-table-column
+        prop="烟酸"
+        label="烟酸(µg/100g)"
+        width="130">
+      </el-table-column>
+      <el-table-column
+        prop="叶酸"
+        label="叶酸(µg/100g)"
+        width="130">
+      </el-table-column>
+      <el-table-column
+        prop="泛酸"
+        label="泛酸(mg/100g)"
+        width="130">
+      </el-table-column>
+      <el-table-column
+        prop="维生素C"
+        label="维生素C(mg/100g)"
+        width="150">
+      </el-table-column>
+      <el-table-column
+        prop="生物素"
+        label="生物素(µg/100g)"
+        width="140">
+      </el-table-column>
+      <el-table-column
+        prop="胆碱"
+        label="胆碱(mg/100g)"
+        width="130">
+      </el-table-column>
+      <el-table-column
+        prop="铁"
+        label="铁(mg/kg)"
+        width="120">
+      </el-table-column>
+      <el-table-column
+        prop="钙"
+        label="钙(mg/kg)"
+        width="120">
+      </el-table-column>
+      <el-table-column
+        prop="锌"
+        label="锌(mg/kg)"
+        width="120">
+      </el-table-column>
+      <el-table-column
+        prop="磷"
+        label="磷(mg/100g)"
+        width="120">
+      </el-table-column>
+      <el-table-column
+        prop="钠"
+        label="钠(mg/100g)"
+        width="120">
+      </el-table-column>
+      <el-table-column
+        prop="钾"
+        label="钾(mg/100g)"
+        width="120">
+      </el-table-column>
+      <el-table-column
+        prop="镁"
+        label="镁(mg/kg)"
+        width="120">
+      </el-table-column>
+      <el-table-column
+        prop="铜"
+        label="铜(mg/kg)"
+        width="120">
+      </el-table-column>
+      <el-table-column
+        prop="锰"
+        label="锰(mg/kg)"
+        width="120">
+      </el-table-column>
+      <el-table-column
+        prop="硒"
+        label="硒(mg/kg)"
+        width="120">
+      </el-table-column>
+      <el-table-column
+        prop="碘"
+        label="碘(mg/kg)"
+        width="120">
+      </el-table-column>
+      <el-table-column
+        prop="铅"
+        label="铅(mg/kg)"
+        width="120">
+      </el-table-column>
+      <el-table-column
+        prop="铬"
+        label="铬(mg/kg)"
+        width="120">
+      </el-table-column>
+      <el-table-column
+        prop="镉"
+        label="镉(mg/kg)"
+        width="120">
+      </el-table-column>
+      <el-table-column
+        prop="总砷"
+        label="总砷(mg/kg)"
+        width="120">
+      </el-table-column>
+      <el-table-column
+        prop="亚油酸"
+        label="亚油酸(g/100g)"
+        width="130">
+      </el-table-column>
+      <el-table-column
+        prop="α-亚麻酸"
+        label="α-亚麻酸(g/100g)"
+        width="150">
+      </el-table-column>
+      <el-table-column
+        prop="亚油酸:α-亚麻酸"
+        label="亚油酸:α-亚麻酸"
+        width="130">
+      </el-table-column>
+      <el-table-column
+        prop="DHA"
+        label="DHA(g/100g)"
+        width="120">
+      </el-table-column>
+      <el-table-column
+        prop="ARA"
+        label="ARA(g/100g)"
+        width="120">
+      </el-table-column>
+      <el-table-column
+        prop="月桂酸和肉豆蔻酸占总脂肪酸的比例"
+        label="月桂酸和肉豆蔻酸占总脂肪酸的比例(总脂肪酸%)"
+        width="140">
+      </el-table-column>
+      <el-table-column
+        prop="反式脂肪酸与总脂肪酸的比值"
+        label="反式脂肪酸与总脂肪酸的比值(总脂肪酸%)"
+        width="120">
+      </el-table-column>
+      <el-table-column
+        prop="OPO"
+        label="OPO(g/100g)"
+        width="120">
+      </el-table-column>
+      <el-table-column
+        prop="氯"
+        label="氯(%)"
+        width="120">
+      </el-table-column>
+      <el-table-column
+        prop="酸度"
+        label="酸度(OT)"
+        width="120">
+      </el-table-column>
+      <el-table-column
+        prop="碳水化合物"
+        label="碳水化合物(g/100g)"
+        width="170">
+      </el-table-column>
+      <el-table-column
+        prop="灰分"
+        label="灰分(g/100g)"
+        width="120">
+      </el-table-column>
+      <el-table-column
+        prop="Asp"
+        label="天冬氨酸(mg/kg)"
+        width="220">
+      </el-table-column>
+      <el-table-column
+        prop="Thr"
+        label="苏氨酸(mg/kg)"
+        width="130">
+      </el-table-column>
+      <el-table-column
+        prop="Ser"
+        label="丝氨酸(mg/kg)"
+        width="130">
+      </el-table-column>
+      <el-table-column
+        prop="Glu"
+        label="谷氨酸(mg/kg)"
+        width="130">
+      </el-table-column>
+      <el-table-column
+        prop="Gly"
+        label="甘氨酸(mg/kg)"
+        width="130">
+      </el-table-column>
+      <el-table-column
+        prop="Ala"
+        label="丙氨酸(mg/kg)"
+        width="130">
+      </el-table-column>
+      <el-table-column
+        prop="Val"
+        label="缬氨酸(mg/kg)"
+        width="130">
+      </el-table-column>
+      <el-table-column
+        prop="Met"
+        label="甲硫氨酸(mg/kg)"
+        width="140">
+      </el-table-column>
+      <el-table-column
+        prop="Ile"
+        label="异亮氨酸(mg/kg)"
+        width="140">
+      </el-table-column>
+      <el-table-column
+        prop="Leu"
+        label="亮氨酸(mg/kg)"
+        width="130">
+      </el-table-column>
+      <el-table-column
+        prop="Tyr"
+        label="酪氨酸(mg/kg)"
+        width="130">
+      </el-table-column>
+      <el-table-column
+        prop="Phe"
+        label="苯丙氨酸(mg/kg)"
+        width="140">
+      </el-table-column>
+      <el-table-column
+        prop="Lys"
+        label="赖氨酸(mg/kg)"
+        width="130">
+      </el-table-column>
+      <el-table-column
+        prop="His"
+        label="组氨酸(mg/kg)"
+        width="130">
+      </el-table-column>
+      <el-table-column
+        prop="Arg"
+        label="精氨酸(mg/kg)"
+        width="130">
+      </el-table-column>
+      <el-table-column
+        prop="Pro"
+        label="脯氨酸(mg/kg)"
+        width="130">
+      </el-table-column>
+      <el-table-column
+        prop="氨基酸总量"
+        label="氨基酸总量(mg/kg)"
+        width="150">
+      </el-table-column>
+      <!-- <el-table-column
+        fixed="right"
+        label="操作"
+        width="100">
         <template slot-scope="scope">
-          <div>{{ scope.row.id }}</div>
+          <el-button @click="edit(scope.row)" type="text" size="small">修改</el-button>
+          <el-button @click="deletebrand(scope.row)" type="text" size="small">删除</el-button>
         </template>
-      </el-table-column>
-      <el-table-column label="日期" width="180">
-        <template slot-scope="scope">
-          <div v-if="!isEdit">{{ scope.row.uptime }}</div>
-          <el-input v-else v-model="scope.row.uptime" placeholder="请输入内容"></el-input>
-        </template>
-      </el-table-column>
-      <el-table-column label="名称" width="180">
-        <template slot-scope="scope">
-          <div v-if="!isEdit">{{ scope.row.name }}</div>
-          <el-input v-else v-model="scope.row.name" placeholder="请输入内容"></el-input>
-        </template>
-      </el-table-column>
-      <el-table-column label="地址" show-overflow-tooltip>
-        <template slot-scope="scope">
-          <div v-if="!isEdit">{{ scope.row.addr }}</div>
-          <el-input v-else v-model="scope.row.addr" placeholder="请输入内容" style="width: 180px;"></el-input>
-        </template>
-      </el-table-column>
+      </el-table-column> -->
     </el-table>
-    <div class="pagination">
-      <el-button v-if="isEdit" type="primary" @click="updateData" class="confirm">确认修改</el-button>
-      <el-pagination :current-page="0" :page-sizes="[10, 20, 30, 40]" :page-size="10" layout="total, sizes, prev, pager, next, jumper" :total="76" />
-    </div>
   </div>
 </template>
 
 <script>
 import axios from "axios";
 export default {
-
-  // name: "Dashboard",
-  // data() {
-  //   return
-  //     tableData: [],
-  //     isEdit: false
-  //   };
-  // },
-  // computed: {},
-  // created() {
-  //   this.getData();
-  // },
-  // mounted() {},
-  // methods: {
-  //   getData() {
-  //     axios({
-  //       method: "post",
-  //       url: "http://139.159.147.237:8080/yxyz/batch/all"
-  //     }).then(res => {
-  //       res.data.data.forEach(e => {
-  //         e.checked = false;
-  //       });
-  //       this.tableData = res.data.data;
-  //     });
-  //   },
-  // }
- };
+  methods: {
+    doSearch() {
+      this.tableData = []
+      this.brandData.forEach((samp) => {
+        /* 第一种写法 */
+        var flag = true;
+        for (var zhibiao in this.searchMetaData) {
+          console.log(zhibiao)
+          if (!(samp[this.searchMetaData[zhibiao].key] === this.searchMetaData[zhibiao].value || this.searchMetaData[zhibiao].value.trim() == ''))
+            flag = false;
+        }
+        if (flag)
+          this.tableData.push(samp)
+        /* 第二种写法 */
+        // if ((samp[this.searchMetaData.营养指标.key] === this.searchMetaData.营养指标.value || this.searchMetaData.营养指标.value.trim() == '')
+        //   && (samp[this.searchMetaData.维生素类.key] === this.searchMetaData.维生素类.value || this.searchMetaData.维生素类.value.trim() == '')
+        //   && (samp[this.searchMetaData.矿物质类.key] === this.searchMetaData.矿物质类.value || this.searchMetaData.矿物质类.value.trim() == '')
+        //   && (samp[this.searchMetaData.氨基酸类.key] === this.searchMetaData.氨基酸类.value || this.searchMetaData.氨基酸类.value.trim() == ''))
+        //   this.tableData.push(samp)
+      })
+    }
+  },
+  data() {
+    return {
+      brandData: [],
+      tableData: [],
+      searchMetaData: {
+        营养指标: {
+          key: '',
+          value: ''
+        },
+        维生素类: {
+          key: '',
+          value: ''
+        },
+        矿物质类: {
+          key: '',
+          value: ''
+        },
+        氨基酸类: {
+          key: '',
+          value: ''
+        }
+      }
+    }
+  },
+  mounted() {
+    var that = this;
+    axios.get('http://goat.oct-month.top/api/GoatMilkTestingSampleInternational/')
+      .then(res => {
+        if (200 <= res.status < 300) {
+          that.brandData = res.data;
+          that.tableData = that.brandData
+        }
+      })
+      .catch(error => {
+        console.log(error)
+      })
+  }
+};
 </script>
 
 <style lang="scss" scoped>
