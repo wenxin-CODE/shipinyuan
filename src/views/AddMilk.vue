@@ -30,17 +30,17 @@
   <el-form-item label="β-内酰胺酶" prop="β_lactamase">
     <el-input v-model="ruleForm['β-内酰胺酶']"></el-input>
   </el-form-item>
-  <el-form-item label="酒精实验" prop="alcohol">
-    <el-input v-model="ruleForm['酒精实验']"></el-input>
+  <el-form-item label="酒精试验" prop="alcohol">
+    <el-input v-model="ruleForm['酒精试验']"></el-input>
   </el-form-item>
-  <el-form-item label="煮沸实验" prop="boiling">
-    <el-input v-model="ruleForm['煮沸实验']"></el-input>
+  <el-form-item label="煮沸试验" prop="boiling">
+    <el-input v-model="ruleForm['煮沸试验']"></el-input>
   </el-form-item>
   <el-form-item label="DBP" prop="DBP">
     <el-input v-model="ruleForm['DBP']"></el-input>
   </el-form-item>
   <el-form-item>
-    <el-button type="primary" @click="submitForm('ruleForm')">修改</el-button>
+    <el-button type="primary" @click="submitForm('ruleForm')">立即创建</el-button>
     <el-button @click="resetForm('ruleForm')">重置</el-button>
   </el-form-item>
 </el-form>
@@ -60,8 +60,8 @@
           酸度:'1',
           抗生素:'1',
           'β-内酰胺酶':'1',
-          酒精实验:'1',
-          煮沸实验:'1',
+          酒精试验:'1',
+          煮沸试验:'1',
           DBP:'1'
         },
         rules: {
@@ -75,7 +75,7 @@
       submitForm(formName) {
         const _this = this
         //与后端交互 
-        axios.post('http://goat.oct-month.top/api/GoatMilkTestingSampleInternational/', this.ruleForm)
+        axios.post('http://goat.oct-month.top/api/CompanySelfInspectionRawGoatMilkSample/', this.ruleForm)
           .then(res => {
             if(res.data > 0) {
                 _this.$message('添加成功')

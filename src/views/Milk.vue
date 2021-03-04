@@ -1,109 +1,110 @@
 <template>
   <div>
-  <el-table
-    :data="tableData"
-    border
-    style="width: 100%">
-    <el-table-column
-    fixed
-    prop="id"
-    label="编号"
-    width="150">
-    </el-table-column>
-    <el-table-column
+    <el-table
+      :data="currentTabelData"
+      border
+      style="width: 100%">
+      <el-table-column
       fixed
-      prop="日期"
-      label="日期"
+      prop="id"
+      label="编号"
       width="150">
-    </el-table-column>
-    <el-table-column
-      prop="奶站"
-      label="奶站"
-      width="120">
-    </el-table-column>
-    <el-table-column
-      prop="感官"
-      label="感官"
-      width="120">
-    </el-table-column>
-    <el-table-column
-      prop="脂肪"
-      label="脂肪(g/100g)"
-      width="120">
-    </el-table-column>
-    <el-table-column
-      prop="蛋白质"
-      label="蛋白质(g/100g)"
-      width="130">
-    </el-table-column>
-    <el-table-column
-      prop="非脂乳固体"
-      label="非脂乳固体(g/100g)"
-      width="160">
-    </el-table-column>
-    <el-table-column
-      prop="冰点"
-      label="冰点(℃)"
-      width="120">
-    </el-table-column>
-    <el-table-column
-      prop="酸度"
-      label="酸度"
-      width="120">
-    </el-table-column>
-    <el-table-column
-      prop="抗生素"
-      label="抗生素"
-      width="120">
-    </el-table-column>
-    <el-table-column
-      prop="β-内酰胺酶"
-      label="β-内酰胺酶"
-      width="120">
-    </el-table-column>
-    <el-table-column
-      prop="酒精实验"
-      label="酒精实验"
-      width="120">
-    </el-table-column>
-    <el-table-column
-      prop="煮沸实验"
-      label="煮沸实验"
-      width="120">
-    </el-table-column>
-    <el-table-column
-      prop="DBP"
-      label="DBP(mg/kg)"
-      width="120">
-    </el-table-column>
-    <el-table-column
-      fixed="right"
-      label="操作"
-      width="100">
-      <template slot-scope="scope">
-        <el-button @click="edit(scope.row)" type="text" size="small">修改</el-button>
-        <el-button @click="deletemilk(scope.row)" type="text" size="small">删除</el-button>
-      </template>
-    </el-table-column>
-  </el-table>
+      </el-table-column>
+      <el-table-column
+        fixed
+        prop="日期"
+        label="日期"
+        width="150">
+      </el-table-column>
+      <el-table-column
+        prop="奶站"
+        label="奶站"
+        width="120">
+      </el-table-column>
+      <el-table-column
+        prop="感官"
+        label="感官"
+        width="120">
+      </el-table-column>
+      <el-table-column
+        prop="脂肪"
+        label="脂肪(g/100g)"
+        width="120">
+      </el-table-column>
+      <el-table-column
+        prop="蛋白质"
+        label="蛋白质(g/100g)"
+        width="130">
+      </el-table-column>
+      <el-table-column
+        prop="非脂乳固体"
+        label="非脂乳固体(g/100g)"
+        width="160">
+      </el-table-column>
+      <el-table-column
+        prop="冰点"
+        label="冰点(℃)"
+        width="120">
+      </el-table-column>
+      <el-table-column
+        prop="酸度"
+        label="酸度"
+        width="120">
+      </el-table-column>
+      <el-table-column
+        prop="抗生素"
+        label="抗生素"
+        width="120">
+      </el-table-column>
+      <el-table-column
+        prop="β-内酰胺酶"
+        label="β-内酰胺酶"
+        width="120">
+      </el-table-column>
+      <el-table-column
+        prop="酒精试验"
+        label="酒精试验"
+        width="120">
+      </el-table-column>
+      <el-table-column
+        prop="煮沸试验"
+        label="煮沸试验"
+        width="120">
+      </el-table-column>
+      <el-table-column
+        prop="DBP"
+        label="DBP(mg/kg)"
+        width="120">
+      </el-table-column>
+      <el-table-column
+        fixed="right"
+        label="操作"
+        width="100">
+        <template slot-scope="scope">
+          <el-button @click="edit(scope.row)" type="text" size="small">修改</el-button>
+          <el-button @click="deletemilk(scope.row)" type="text" size="small">删除</el-button>
+        </template>
+      </el-table-column>
+    </el-table>
 
-  <el-pagination
-  background
-  layout="prev, pager, next"
-  :page-size="page_size"
-  :total="tableData.length"
-  @current-change="page">
-  </el-pagination>
+    <el-pagination
+    background
+    layout="prev, pager, next"
+    :page-size="page_size"
+    :total="tableData.length"
+    @current-change="changePage">
+    </el-pagination>
   </div>
 </template>
 
 <script>
   export default {
+    //调用方法
     methods: {
       deletemilk(row){
-         console.log(row.id);
+         console.log(row);
         const _this = this
-        axios.delete('' + row.id)
+        axios.delete('http://goat.oct-month.top/api/CompanySelfInspectionRawGoatMilkSample/' + row.id)
           .then(resp => {
             _this.$alert(row.id+'删除成功','消息',{
               confirmButtonText: '确定',
@@ -127,7 +128,7 @@
         })
         //row.id
       },
-      page(currentPage){
+      changePage(currentPage) {
         var start = this.page_size * (currentPage - 1)
         var end = start + this.page_size
         this.currentTabelData = this.tableData.slice(start, end)
@@ -143,9 +144,10 @@
     //   })
     // },
 
+    //初始化页面加载的
     mounted() {
       const that = this
-      axios.get('')
+      axios.get('http://goat.oct-month.top/api/CompanySelfInspectionRawGoatMilkSample/')
         .then(res => {
           if (200 <= res.status < 300)
           {
@@ -159,59 +161,12 @@
         })
     },
 
+    //返回数据
     data() {
       return {
-        // total: null,
-        // tableData: null,
-        tableData: [{
-          id: 1,
-          date: "4.20",
-          milk_station:'1',
-          feel: "符合",
-          fat: 3.26,
-          protein: 3.19,
-          Non_fatty_emulsion_solids:'1', 
-          freezing_point:'1',
-          PH:'1',
-          antibiotics:'1',
-          β_lactamase:'1',
-          alcohol:'1',
-          boiling:'1',
-          DBP:'1'
-        }, {
-          date: "4.20",
-          feel: "符合",
-          protein: 3.19,
-          fat: 3.26
-        }, {
-          date: "4.20",
-          feel: "符合",
-          protein: 3.19,
-          fat: 3.26
-        }, {         
-          date: "4.20",
-          feel: "符合",
-          protein: 3.19,
-          fat: 3.26
-        }, {
-          date: "4.20",
-          feel: "符合",
-          protein: 3.19,
-          fat: 3.26
-        }, {
-          date: "4.20",
-          feel: "符合",
-          protein: 3.19,
-          fat: 3.26
-        }, {
-          date: "4.20",
-          feel: "符合",
-          protein: 3.19,
-          fat: 3.26
-        }]
-        // tableData: [],
-        // currentTabelData: [],
-        // page_size: 5
+        tableData: [],
+        currentTabelData: [],
+        page_size: 5
       }
     }
   }

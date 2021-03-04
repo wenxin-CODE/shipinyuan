@@ -1,7 +1,7 @@
 <template>
   <div>
   <el-table
-    :data="tableData"
+    :data="currentTabelData"
     border
     style="width: 100%">
     <el-table-column

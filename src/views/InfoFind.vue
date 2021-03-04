@@ -1,7 +1,7 @@
 <template>
   <div class="dashboard-container">
     <div class="btn-wrap">
-      <el-select v-model="value" placeholder="营养指标" style="width:300px">
+      <el-select v-model="searchMetaData.营养指标.key" placeholder="营养指标" style="width:400px">
         <el-option label="蛋白质" value="蛋白质"></el-option>
         <el-option label="脂肪" value="脂肪"></el-option>
         <el-option label="非脂乳固体" value="非脂乳固体"></el-option>
@@ -11,15 +11,12 @@
 
       <el-form :inline="true" class="demo-form-inline">
         <el-form-item>
-          <el-input placeholder="请输入搜索关键字" class="input" />
+          <el-input v-model="searchMetaData.营养指标.value" placeholder="请输入搜索关键字" class="input" />
         </el-form-item>
-        
       </el-form>
 
 
-
-      
-      <el-select v-model="value" placeholder="维生素类" style="width:300px">
+      <el-select v-model="searchMetaData.维生素类.key" placeholder="维生素类" style="width:400px">
         <el-option label="维生素A" value="维生素A"></el-option>
         <el-option label="维生素E" value="维生素E"></el-option>
         <el-option label="维生素K1" value="维生素K1"></el-option>
@@ -35,40 +32,54 @@
 
       <el-form :inline="true" class="demo-form-inline">
         <el-form-item>
-          <el-input placeholder="请输入搜索关键字" class="input" />
+          <el-input v-model="searchMetaData.维生素类.value" placeholder="请输入搜索关键字" class="input" />
         </el-form-item>
         
       </el-form>
-      <el-select v-model="value" placeholder="矿物质类">
-        <el-option label="钙" value="AA"></el-option>
-        <el-option label="铁" value="bb"></el-option>
-        <el-option label="锌" value="cc"></el-option>
-        <el-option label="磷" value="cc"></el-option>
-        <el-option label="钠" value="cc"></el-option>
-        <el-option label="钾" value="cc"></el-option>
-        <el-option label="镁" value="cc"></el-option>
-        <el-option label="铜" value="cc"></el-option>
-        <el-option label="硒" value="cc"></el-option>
-        <el-option label="碘" value="cc"></el-option>
-        <el-option label="氯" value="cc"></el-option>
-        <el-option label="总砷" value="cc"></el-option>
+      <el-select v-model="searchMetaData.矿物质类.key" placeholder="矿物质类" style="width:400px">
+        <el-option label="钙" value="钙"></el-option>
+        <el-option label="铁" value="铁"></el-option>
+        <el-option label="锌" value="锌"></el-option>
+        <el-option label="磷" value="磷"></el-option>
+        <el-option label="钠" value="钠"></el-option>
+        <el-option label="钾" value="钾"></el-option>
+        <el-option label="镁" value="镁"></el-option>
+        <el-option label="铜" value="铜"></el-option>
+        <el-option label="硒" value="硒"></el-option>
+        <el-option label="碘" value="碘"></el-option>
+        <el-option label="氯" value="氯"></el-option>
+        <el-option label="总砷" value="总砷"></el-option>
       </el-select>
 
       <el-form :inline="true" class="demo-form-inline">
         <el-form-item>
-          <el-input placeholder="请输入搜索关键字" class="input" />
+          <el-input v-model="searchMetaData.矿物质类.value" placeholder="请输入搜索关键字" class="input" />
         </el-form-item>
       </el-form>
 
-      <el-select v-model="value" placeholder="请选择">
-        <el-option label="AA" value="AA"></el-option>
-        <el-option label="bb" value="bb"></el-option>
-        <el-option label="cc" value="cc"></el-option>
+      <el-select v-model="searchMetaData.氨基酸类.key" placeholder="氨基酸类" style="width:400px">
+        <el-option label="Asp" value="Asp"></el-option>
+        <el-option label="Thr" value="Thr"></el-option>
+        <el-option label="Ser" value="Ser"></el-option>
+        <el-option label="Glu" value="Glu"></el-option>
+        <el-option label="Gly" value="Gly"></el-option>
+        <el-option label="Ala" value="Ala"></el-option>
+        <el-option label="Val" value="Val"></el-option>
+        <el-option label="Met" value="Met"></el-option>
+        <el-option label="Ile" value="Ile"></el-option>
+        <el-option label="Leu" value="Leu"></el-option>
+        <el-option label="Tyr" value="Tyr"></el-option>
+        <el-option label="Phe" value="Phe"></el-option>
+        <el-option label="Lys" value="Lys"></el-option>
+        <el-option label="His" value="His"></el-option>
+        <el-option label="Arg" value="Arg"></el-option>
+        <el-option label="Pro" value="Pro"></el-option>
+        <el-option label="氨基酸总量" value="氨基酸总量"></el-option>
       </el-select>
 
       <el-form :inline="true" class="demo-form-inline">
         <el-form-item>
-          <el-input placeholder="请输入搜索关键字" class="input" />
+          <el-input v-model="searchMetaData.氨基酸类.value" placeholder="请输入搜索关键字" class="input" />
         </el-form-item>
         
       </el-form>
@@ -76,80 +87,148 @@
 
       <el-form :inline="true" class="demo-form-inline">
       <el-form-item>
-          <el-button type="primary" @click="getData">查询</el-button>
+          <el-button type="primary" @click="doSearch">查询</el-button>
         </el-form-item>
       </el-form>
 
 
-
     </div>
-    <el-table stripe :data="tableData" style="width: 100%">
-      <el-table-column width="55">
-        <template label="选择" slot-scope="scope">
-          <el-checkbox  v-model="scope.row.checked"></el-checkbox>
-        </template>
-      </el-table-column>
-      <el-table-column label="id" width="180">
+    <el-table
+    :data="tableData"
+    border
+    style="width: 100%">
+    <el-table-column
+      fixed
+      prop="id"
+      label="公司编号"
+      width="150">
+    </el-table-column>
+    <el-table-column
+      prop="info"
+      label="品种"
+      width="120">
+    </el-table-column>
+    <el-table-column
+      prop="区域"
+      label="区域"
+      width="120">
+    </el-table-column>
+    <el-table-column
+      prop="感官"
+      label="感官"
+      width="150">
+    </el-table-column>
+    <el-table-column
+      prop="脂肪"
+      label="脂肪(g/100g)"
+      width="120">
+    </el-table-column>
+    <el-table-column
+      prop="蛋白质"
+      label="蛋白质(g/100g)"
+      width="130">
+    </el-table-column>
+    <el-table-column
+      prop="水分"
+      label="水分(g/100g)"
+      width="120">
+    </el-table-column>
+    <el-table-column
+      prop="抗生素"
+      label="抗生素"
+      width="120">
+    </el-table-column>
+    <el-table-column
+      prop="β-内酰胺酶"
+      label="β-内酰胺酶"
+      width="120">
+    </el-table-column>
+    <el-table-column
+      prop="酸度"
+      label="酸度"
+      width="120">
+    </el-table-column>
+    <el-table-column
+      prop="DBP"
+      label="DBP(g/100g)"
+      width="120">
+    </el-table-column>
+      <!-- <el-table-column
+        fixed="right"
+        label="操作"
+        width="100">
         <template slot-scope="scope">
-          <div>{{ scope.row.id }}</div>
+          <el-button @click="edit(scope.row)" type="text" size="small">修改</el-button>
+          <el-button @click="deletebrand(scope.row)" type="text" size="small">删除</el-button>
         </template>
-      </el-table-column>
-      <el-table-column label="日期" width="180">
-        <template slot-scope="scope">
-          <div v-if="!isEdit">{{ scope.row.uptime }}</div>
-          <el-input v-else v-model="scope.row.uptime" placeholder="请输入内容"></el-input>
-        </template>
-      </el-table-column>
-      <el-table-column label="名称" width="180">
-        <template slot-scope="scope">
-          <div v-if="!isEdit">{{ scope.row.name }}</div>
-          <el-input v-else v-model="scope.row.name" placeholder="请输入内容"></el-input>
-        </template>
-      </el-table-column>
-      <el-table-column label="地址" show-overflow-tooltip>
-        <template slot-scope="scope">
-          <div v-if="!isEdit">{{ scope.row.addr }}</div>
-          <el-input v-else v-model="scope.row.addr" placeholder="请输入内容" style="width: 180px;"></el-input>
-        </template>
-      </el-table-column>
+      </el-table-column> -->
     </el-table>
-    <div class="pagination">
-      <el-button v-if="isEdit" type="primary" @click="updateData" class="confirm">确认修改</el-button>
-      <el-pagination :current-page="0" :page-sizes="[10, 20, 30, 40]" :page-size="10" layout="total, sizes, prev, pager, next, jumper" :total="76" />
-    </div>
   </div>
 </template>
 
 <script>
 import axios from "axios";
 export default {
-
-  // name: "Dashboard",
-  // data() {
-  //   return
-  //     tableData: [],
-  //     isEdit: false
-  //   };
-  // },
-  // computed: {},
-  // created() {
-  //   this.getData();
-  // },
-  // mounted() {},
-  // methods: {
-  //   getData() {
-  //     axios({
-  //       method: "post",
-  //       url: "http://139.159.147.237:8080/yxyz/batch/all"
-  //     }).then(res => {
-  //       res.data.data.forEach(e => {
-  //         e.checked = false;
-  //       });
-  //       this.tableData = res.data.data;
-  //     });
-  //   },
-  // }
- };
+  methods: {
+    doSearch() {
+      this.tableData = []
+      this.brandData.forEach((samp) => {
+        /* 第一种写法 */
+        var flag = true;
+        for (var zhibiao in this.searchMetaData) {
+          console.log(zhibiao)
+          if (!(samp[this.searchMetaData[zhibiao].key] === this.searchMetaData[zhibiao].value || this.searchMetaData[zhibiao].value.trim() == ''))
+            flag = false;
+        }
+        if (flag)
+          this.tableData.push(samp)
+        /* 第二种写法 */
+        // if ((samp[this.searchMetaData.营养指标.key] === this.searchMetaData.营养指标.value || this.searchMetaData.营养指标.value.trim() == '')
+        //   && (samp[this.searchMetaData.维生素类.key] === this.searchMetaData.维生素类.value || this.searchMetaData.维生素类.value.trim() == '')
+        //   && (samp[this.searchMetaData.矿物质类.key] === this.searchMetaData.矿物质类.value || this.searchMetaData.矿物质类.value.trim() == '')
+        //   && (samp[this.searchMetaData.氨基酸类.key] === this.searchMetaData.氨基酸类.value || this.searchMetaData.氨基酸类.value.trim() == ''))
+        //   this.tableData.push(samp)
+      })
+    }
+  },
+  data() {
+    return {
+      brandData: [],
+      tableData: [],
+      searchMetaData: {
+        营养指标: {
+          key: '',
+          value: ''
+        },
+        维生素类: {
+          key: '',
+          value: ''
+        },
+        矿物质类: {
+          key: '',
+          value: ''
+        },
+        氨基酸类: {
+          key: '',
+          value: ''
+        }
+      }
+    }
+  },
+  mounted() {
+    var that = this;
+    axios.get('http://goat.oct-month.top/api/GoatMilkTestingSampleProvince/')
+      .then(res => {
+        if (200 <= res.status < 300) {
+          that.brandData = res.data;
+          that.tableData = that.brandData
+        }
+      })
+      .catch(error => {
+        console.log(error)
+      })
+  }
+};
 </script>
 
 <style lang="scss" scoped>
@@ -182,3 +261,4 @@ export default {
   left: 20px;
 }
 </style>
+
