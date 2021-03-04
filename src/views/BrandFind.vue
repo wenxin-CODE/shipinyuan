@@ -1,7 +1,7 @@
 <template>
   <div class="dashboard-container">
     <div class="btn-wrap">
-      <el-select v-model="value" placeholder="营养指标" style="width:300px">
+      <el-select v-model="value" placeholder="营养指标" style="width:400px">
         <el-option label="蛋白质" value="蛋白质"></el-option>
         <el-option label="脂肪" value="脂肪"></el-option>
         <el-option label="非脂乳固体" value="非脂乳固体"></el-option>
@@ -19,7 +19,7 @@
 
 
       
-      <el-select v-model="value" placeholder="维生素类" style="width:300px">
+      <el-select v-model="value" placeholder="维生素类" style="width:400px">
         <el-option label="维生素A" value="维生素A"></el-option>
         <el-option label="维生素E" value="维生素E"></el-option>
         <el-option label="维生素K1" value="维生素K1"></el-option>
@@ -39,19 +39,19 @@
         </el-form-item>
         
       </el-form>
-      <el-select v-model="value" placeholder="矿物质类">
-        <el-option label="钙" value="AA"></el-option>
-        <el-option label="铁" value="bb"></el-option>
-        <el-option label="锌" value="cc"></el-option>
-        <el-option label="磷" value="cc"></el-option>
-        <el-option label="钠" value="cc"></el-option>
-        <el-option label="钾" value="cc"></el-option>
-        <el-option label="镁" value="cc"></el-option>
-        <el-option label="铜" value="cc"></el-option>
-        <el-option label="硒" value="cc"></el-option>
-        <el-option label="碘" value="cc"></el-option>
-        <el-option label="氯" value="cc"></el-option>
-        <el-option label="总砷" value="cc"></el-option>
+      <el-select v-model="value" placeholder="矿物质类" style="width:400px">
+        <el-option label="钙" value="钙"></el-option>
+        <el-option label="铁" value="铁"></el-option>
+        <el-option label="锌" value="锌"></el-option>
+        <el-option label="磷" value="磷"></el-option>
+        <el-option label="钠" value="钠"></el-option>
+        <el-option label="钾" value="钾"></el-option>
+        <el-option label="镁" value="镁"></el-option>
+        <el-option label="铜" value="铜"></el-option>
+        <el-option label="硒" value="硒"></el-option>
+        <el-option label="碘" value="碘"></el-option>
+        <el-option label="氯" value="氯"></el-option>
+        <el-option label="总砷" value="总砷"></el-option>
       </el-select>
 
       <el-form :inline="true" class="demo-form-inline">
@@ -60,10 +60,24 @@
         </el-form-item>
       </el-form>
 
-      <el-select v-model="value" placeholder="请选择">
-        <el-option label="AA" value="AA"></el-option>
-        <el-option label="bb" value="bb"></el-option>
-        <el-option label="cc" value="cc"></el-option>
+      <el-select v-model="value" placeholder="氨基酸类" style="width:400px">
+        <el-option label="Asp" value="Asp"></el-option>
+        <el-option label="Thr" value="Thr"></el-option>
+        <el-option label="Ser" value="Ser"></el-option>
+        <el-option label="Glu" value="Glu"></el-option>
+        <el-option label="Gly" value="Gly"></el-option>
+        <el-option label="Ala" value="Ala"></el-option>
+        <el-option label="Val" value="Val"></el-option>
+        <el-option label="Met" value="Met"></el-option>
+        <el-option label="Ile" value="Ile"></el-option>
+        <el-option label="Leu" value="Leu"></el-option>
+        <el-option label="Tyr" value="Tyr"></el-option>
+        <el-option label="Phe" value="Phe"></el-option>
+        <el-option label="Lys" value="Lys"></el-option>
+        <el-option label="His" value="His"></el-option>
+        <el-option label="Arg" value="Arg"></el-option>
+        <el-option label="Pro" value="Pro"></el-option>
+        <el-option label="氨基酸总量" value="氨基酸总量"></el-option>
       </el-select>
 
       <el-form :inline="true" class="demo-form-inline">
