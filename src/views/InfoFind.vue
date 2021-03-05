@@ -1,6 +1,7 @@
 <template>
   <div class="dashboard-container">
     <div class="btn-wrap">
+      <el-cow>
       <el-select v-model="searchMetaData.营养指标.key" placeholder="营养指标" style="width:400px">
         <el-option label="蛋白质" value="蛋白质"></el-option>
         <el-option label="脂肪" value="脂肪"></el-option>
@@ -83,6 +84,21 @@
         </el-form-item>
         
       </el-form>
+      <el-select v-model="searchMetaData.其他.key" placeholder="其他" style="width:400px">
+        <el-option label="水分" value="水分"></el-option>
+        <el-option label="酸度" value="酸度"></el-option>
+        <el-option label="灰分" value="灰分"></el-option>
+        <el-option label="亚油酸" value="亚油酸"></el-option>
+        <el-option label="α-亚麻酸" value="α-亚麻酸"></el-option>
+      </el-select>
+      
+
+      <el-form :inline="true" class="demo-form-inline">
+        <el-form-item>
+          <el-input v-model="searchMetaData.其他.value" placeholder="请输入搜索关键字" class="input" />
+        </el-form-item>
+      </el-form>
+      </el-cow>
 
 
       <el-form :inline="true" class="demo-form-inline">
@@ -209,6 +225,10 @@ export default {
           value: ''
         },
         氨基酸类: {
+          key: '',
+          value: ''
+        },
+        其他: {
           key: '',
           value: ''
         }

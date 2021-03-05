@@ -13,6 +13,7 @@ import MilkUpdate from '../views/MilkUpdate'
 import BrandFind from '../views/BrandFind'
 import InfoFind from '../views/InfoFind'
 import MilkFind from '../views/MilkFind'
+import Test from '../views/Test'
 
 Vue.use(VueRouter)
 
@@ -38,7 +39,12 @@ const routes = [
         path: '/BrangFind',
         name: '查询产品',
         component: BrandFind
-      }
+      },
+      // {
+      //   path: '/Test',
+      //   name: '检测',
+      //   component: Test
+      // }
 
     ],
   },
@@ -103,6 +109,18 @@ const routes = [
     component: MilkUpdate,
     show: false
   },
+  {
+    path: "/navigation",
+    name: "市销产品检测",
+    component: Index,
+    show: true,
+    children:[
+      {
+        path: '/Test',
+        name: '产品检测',
+        component: Test
+      }]
+    }
   
 ]
 
