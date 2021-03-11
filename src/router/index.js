@@ -20,7 +20,7 @@ Vue.use(VueRouter)
 const routes = [
   {
     path: "/",
-    name: "市销产品",
+    name: "市售羊奶粉",
     component: Index,
     show: true,
     redirect: "/Brand",
@@ -37,14 +37,9 @@ const routes = [
       },
       {
         path: '/BrangFind',
-        name: '查询产品',
+        name: '快速查询',
         component: BrandFind
       },
-      // {
-      //   path: '/Test',
-      //   name: '检测',
-      //   component: Test
-      // }
 
     ],
   },
@@ -55,7 +50,7 @@ const routes = [
   },
   {
     path: "/navigation",
-    name: "省内外",
+    name: "自检羊奶粉",
     component: Index,
     show: true,
     children:[
@@ -66,12 +61,12 @@ const routes = [
       },
       {
         path: '/AddInfo',
-        name: '添加信息',
+        name: '添加产品',
         component: AddInfo
       },
       {
         path: '/InfoFind',
-        name: '查询信息',
+        name: '快速查询',
         component: InfoFind
       }
     ]
@@ -83,23 +78,23 @@ const routes = [
   },
   {
     path: "/navigation",
-    name: "公司自检样品",
+    name: "生鲜羊乳",
     component: Index,
     show: true,
     children:[
       {
         path: '/Milk',
-        name: '羊奶信息',
+        name: '样品信息',
         component: Milk
       },
       {
         path: '/AddMilk',
-        name: '添加生羊乳',
+        name: '添加产品',
         component: AddMilk
       },
       {
         path: '/MilkFind',
-        name: '查询羊奶',
+        name: '快速查询',
         component: MilkFind
       }
     ]
@@ -111,7 +106,7 @@ const routes = [
   },
   {
     path: "/navigation",
-    name: "市销产品检测",
+    name: "市销产品",
     component: Index,
     show: true,
     children:[

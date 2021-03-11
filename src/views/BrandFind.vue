@@ -1,111 +1,131 @@
 <template>
   <div class="dashboard-container">
     <div class="btn-wrap">
-      <el-cow>
-      <el-select v-model="searchMetaData.营养指标.key" placeholder="营养指标" style="width:400px">
-        <el-option label="蛋白质" value="蛋白质"></el-option>
-        <el-option label="脂肪" value="脂肪"></el-option>
-        <el-option label="非脂乳固体" value="非脂乳固体"></el-option>
-        <el-option label="乳糖" value="乳糖"></el-option>
-        <el-option label="碳水化合物" value="碳水化合物"></el-option>
-      </el-select>
-
       <el-form :inline="true" class="demo-form-inline">
+        <el-row>
+          <el-col :span="8">
+            <el-form-item>
+              <el-select v-model="searchMetaData.营养指标.key" placeholder="营养指标" style="width:400px">
+                <el-option label="蛋白质" value="蛋白质"></el-option>
+                <el-option label="脂肪" value="脂肪"></el-option>
+                <el-option label="非脂乳固体" value="非脂乳固体"></el-option>
+                <el-option label="乳糖" value="乳糖"></el-option>
+                <el-option label="碳水化合物" value="碳水化合物"></el-option>
+              </el-select>
+            </el-form-item>
+          </el-col>
+          <el-col :span="8">
+            <el-form-item>
+              <el-input v-model="searchMetaData.营养指标.value" placeholder="请输入搜索关键字" class="input" />
+            </el-form-item>
+          </el-col>
+        </el-row>
+
+        <el-row>
+          <el-col span="8">
+          <el-form-item>
+            <el-select v-model="searchMetaData.维生素类.key" placeholder="维生素类" style="width:400px">
+              <el-option label="维生素A" value="维生素A"></el-option>
+              <el-option label="维生素E" value="维生素E"></el-option>
+              <el-option label="维生素K1" value="维生素K1"></el-option>
+              <el-option label="维生素B1" value="维生素B1"></el-option>
+              <el-option label="维生素B2" value="维生素B2"></el-option>
+              <el-option label="维生素B6" value="维生素B6"></el-option>
+              <el-option label="维生素C" value="维生素C"></el-option>
+              <el-option label="烟酸" value="烟酸"></el-option>
+              <el-option label="泛酸" value="泛酸"></el-option>
+              <el-option label="生物素" value="生物素"></el-option>
+              <el-option label="胆碱" value="胆碱"></el-option>
+            </el-select>
+          </el-form-item>
+          </el-col>
+          <el-col span="8">
+            <el-form-item>
+              <el-input v-model="searchMetaData.维生素类.value" placeholder="请输入搜索关键字" class="input" />
+            </el-form-item>
+          </el-col>
+        </el-row>
+     
+        <el-row>
+          <el-col span="8">
+            <el-form-item>
+              <el-select v-model="searchMetaData.矿物质类.key" placeholder="矿物质类" style="width:400px">
+                <el-option label="钙" value="钙"></el-option>
+                <el-option label="铁" value="铁"></el-option>
+                <el-option label="锌" value="锌"></el-option>
+                <el-option label="磷" value="磷"></el-option>
+                <el-option label="钠" value="钠"></el-option>
+                <el-option label="钾" value="钾"></el-option>
+                <el-option label="镁" value="镁"></el-option>
+                <el-option label="铜" value="铜"></el-option>
+                <el-option label="硒" value="硒"></el-option>
+                <el-option label="碘" value="碘"></el-option>
+                <el-option label="氯" value="氯"></el-option>
+                <el-option label="总砷" value="总砷"></el-option>
+              </el-select>
+            </el-form-item>
+          </el-col>
+
+          <el-cow span="8">
+            <el-form-item>
+              <el-input v-model="searchMetaData.矿物质类.value" placeholder="请输入搜索关键字" class="input" />
+            </el-form-item>
+          </el-cow>
+        </el-row>
+
+        <el-row>
+          <el-col span="8">
+            <el-form-item>
+              <el-select v-model="searchMetaData.氨基酸类.key" placeholder="氨基酸类" style="width:400px">
+                <el-option label="Asp" value="Asp"></el-option>
+                <el-option label="Thr" value="Thr"></el-option>
+                <el-option label="Ser" value="Ser"></el-option>
+                <el-option label="Glu" value="Glu"></el-option>
+                <el-option label="Gly" value="Gly"></el-option>
+                <el-option label="Ala" value="Ala"></el-option>
+                <el-option label="Val" value="Val"></el-option>
+                <el-option label="Met" value="Met"></el-option>
+                <el-option label="Ile" value="Ile"></el-option>
+                <el-option label="Leu" value="Leu"></el-option>
+                <el-option label="Tyr" value="Tyr"></el-option>
+                <el-option label="Phe" value="Phe"></el-option>
+                <el-option label="Lys" value="Lys"></el-option>
+                <el-option label="His" value="His"></el-option>
+                <el-option label="Arg" value="Arg"></el-option>
+                <el-option label="Pro" value="Pro"></el-option>
+                <el-option label="氨基酸总量" value="氨基酸总量"></el-option>
+              </el-select>
+            </el-form-item>
+          </el-col>
+          <el-cow span="8">
+            <el-form-item>
+              <el-input v-model="searchMetaData.氨基酸类.value" placeholder="请输入搜索关键字" class="input" />
+            </el-form-item>
+          </el-cow>
+        </el-row>
+        
+        <el-row>
+          <el-col span="8">
+            <el-form-item>
+              <el-select v-model="searchMetaData.其他.key" placeholder="其他" style="width:400px">
+                <el-option label="水分" value="水分"></el-option>
+                <el-option label="酸度" value="酸度"></el-option>
+                <el-option label="灰分" value="灰分"></el-option>
+                <el-option label="亚油酸" value="亚油酸"></el-option>
+                <el-option label="α-亚麻酸" value="α-亚麻酸"></el-option>
+              </el-select>
+            </el-form-item>
+          </el-col>
+          <el-cow span="8">
+            <el-form-item>
+              <el-input v-model="searchMetaData.其他.value" placeholder="请输入搜索关键字" class="input" />
+            </el-form-item>
+          </el-cow>
+        </el-row>
         <el-form-item>
-          <el-input v-model="searchMetaData.营养指标.value" placeholder="请输入搜索关键字" class="input" />
+            <el-button type="primary" @click="doSearch">查询</el-button>
         </el-form-item>
       </el-form>
-
-      
-      <el-select v-model="searchMetaData.维生素类.key" placeholder="维生素类" style="width:400px">
-        <el-option label="维生素A" value="维生素A"></el-option>
-        <el-option label="维生素E" value="维生素E"></el-option>
-        <el-option label="维生素K1" value="维生素K1"></el-option>
-        <el-option label="维生素B1" value="维生素B1"></el-option>
-        <el-option label="维生素B2" value="维生素B2"></el-option>
-        <el-option label="维生素B6" value="维生素B6"></el-option>
-        <el-option label="维生素C" value="维生素C"></el-option>
-        <el-option label="烟酸" value="烟酸"></el-option>
-        <el-option label="泛酸" value="泛酸"></el-option>
-        <el-option label="生物素" value="生物素"></el-option>
-        <el-option label="胆碱" value="胆碱"></el-option>
-      </el-select>
-
-      <el-form :inline="true" class="demo-form-inline">
-        <el-form-item>
-          <el-input v-model="searchMetaData.维生素类.value" placeholder="请输入搜索关键字" class="input" />
-        </el-form-item>
-      </el-form>
-      <el-select v-model="searchMetaData.矿物质类.key" placeholder="矿物质类" style="width:400px">
-        <el-option label="钙" value="钙"></el-option>
-        <el-option label="铁" value="铁"></el-option>
-        <el-option label="锌" value="锌"></el-option>
-        <el-option label="磷" value="磷"></el-option>
-        <el-option label="钠" value="钠"></el-option>
-        <el-option label="钾" value="钾"></el-option>
-        <el-option label="镁" value="镁"></el-option>
-        <el-option label="铜" value="铜"></el-option>
-        <el-option label="硒" value="硒"></el-option>
-        <el-option label="碘" value="碘"></el-option>
-        <el-option label="氯" value="氯"></el-option>
-        <el-option label="总砷" value="总砷"></el-option>
-      </el-select>
-
-      <el-form :inline="true" class="demo-form-inline">
-        <el-form-item>
-          <el-input v-model="searchMetaData.矿物质类.value" placeholder="请输入搜索关键字" class="input" />
-        </el-form-item>
-      </el-form>
-
-      <el-select v-model="searchMetaData.氨基酸类.key" placeholder="氨基酸类" style="width:400px">
-        <el-option label="Asp" value="Asp"></el-option>
-        <el-option label="Thr" value="Thr"></el-option>
-        <el-option label="Ser" value="Ser"></el-option>
-        <el-option label="Glu" value="Glu"></el-option>
-        <el-option label="Gly" value="Gly"></el-option>
-        <el-option label="Ala" value="Ala"></el-option>
-        <el-option label="Val" value="Val"></el-option>
-        <el-option label="Met" value="Met"></el-option>
-        <el-option label="Ile" value="Ile"></el-option>
-        <el-option label="Leu" value="Leu"></el-option>
-        <el-option label="Tyr" value="Tyr"></el-option>
-        <el-option label="Phe" value="Phe"></el-option>
-        <el-option label="Lys" value="Lys"></el-option>
-        <el-option label="His" value="His"></el-option>
-        <el-option label="Arg" value="Arg"></el-option>
-        <el-option label="Pro" value="Pro"></el-option>
-        <el-option label="氨基酸总量" value="氨基酸总量"></el-option>
-      </el-select>
-      
-
-      <el-form :inline="true" class="demo-form-inline">
-        <el-form-item>
-          <el-input v-model="searchMetaData.氨基酸类.value" placeholder="请输入搜索关键字" class="input" />
-        </el-form-item>
-      </el-form>
-
-      <el-select v-model="searchMetaData.其他.key" placeholder="其他" style="width:400px">
-        <el-option label="水分" value="水分"></el-option>
-        <el-option label="酸度" value="酸度"></el-option>
-        <el-option label="灰分" value="灰分"></el-option>
-        <el-option label="亚油酸" value="亚油酸"></el-option>
-        <el-option label="α-亚麻酸" value="α-亚麻酸"></el-option>
-      </el-select>
-      
-
-      <el-form :inline="true" class="demo-form-inline">
-        <el-form-item>
-          <el-input v-model="searchMetaData.其他.value" placeholder="请输入搜索关键字" class="input" />
-        </el-form-item>
-      </el-form>
-      </el-cow>
-
-      <el-form :inline="true" class="demo-form-inline">
-      <el-form-item>
-          <el-button type="primary" @click="doSearch">查询</el-button>
-        </el-form-item>
-      </el-form>
-
 
     </div>
     <el-table
