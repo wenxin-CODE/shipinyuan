@@ -1,4 +1,6 @@
 <template>
+<h1> 
+  <center>羊奶粉信息数据库</center>
   <el-container id="container">
   
   <el-aside width="200px" style="background-color: rgb(238, 241, 246)">
@@ -34,7 +36,7 @@
     <router-view></router-view>
   </el-main>
   </el-container>
-  
+</h1>
 </template>
 
 <style scoped>

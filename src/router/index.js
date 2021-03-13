@@ -56,7 +56,7 @@ const routes = [
     children:[
       {
         path: '/Info',
-        name: '信息查询',
+        name: '检测信息',
         component: Info
       },
       {
@@ -112,7 +112,7 @@ const routes = [
     children:[
       {
         path: '/Test',
-        name: '产品检测',
+        name: '产地判断',
         component: Test
       }]
     }

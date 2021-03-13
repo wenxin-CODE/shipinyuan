@@ -57,7 +57,7 @@
       </el-table-column>
       <el-table-column
         prop="维生素A"
-        label="维生素A(µg /100g)"
+        label="维生素A(µg/100g)"
         width="150">
       </el-table-column>
       <el-table-column
@@ -247,7 +247,7 @@
       </el-table-column>
       <el-table-column
         prop="酸度"
-        label="酸度(OT)"
+        label="酸度(°T)"
         width="120">
       </el-table-column>
       <el-table-column

@@ -1,6 +1,7 @@
 <template>
 <div>
-  <h1 class="word-v-middle">检测指标如下，请输入相关信息</h1>
+  <h1 class="word-v-middle">请输入判断指标数据</h1>
+  <h1 class="word-vv-middle">提示：请输入不少于2个指标数据</h1>
 <el-form :model="ruleForm" :rules="rules" ref="ruleForm" label-width="350px">
   <el-form-item label="硒(mg/kg)" prop="硒">
     <el-input v-model="ruleForm['硒']" style="width:300px"></el-input>
@@ -102,7 +103,7 @@ align-items: 400px;
 justify-content: center;
 height: 50px;
 margin-top: 0px;
-margin-left: 150px;
+margin-left: 50px;
 color: #87878a;
 white-space: normal;
 }
@@ -112,12 +113,28 @@ font-size: 25px;
 min-height: 31px;
 display: flex;
 align-items: 400px;
-justify-content: center;
-height: 100px;
-margin-top: 10px;
-color: #87878a;
+/* justify-content: center; */
+height: 70px;
+margin-top: 20px;
+margin-left: 360px;
+color: #111111;;
 white-space: normal;
 }
+
+.word-vv-middle{
+margin-bottom: 0;
+font-size: 10px;
+min-height: 1px;
+display: flex;
+align-items: 400px;
+/* justify-content: center; */
+height: 70px;
+margin-top: 0px;
+margin-left: 360px;
+color: #111111;;
+white-space: normal;
+}
+
 .word-v-middle span{
 text-align: left;
 font-size: 10px;

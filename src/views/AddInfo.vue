@@ -1,34 +1,34 @@
 <template>
-<el-form :model="ruleForm" :rules="rules" ref="ruleForm" label-width="100px" class="demo-ruleForm">
-  <el-form-item label="品种">
-    <el-input v-model="ruleForm['info']" readOnly></el-input>
+<el-form :model="ruleForm" :rules="rules" ref="ruleForm" label-width="200px" class="demo-ruleForm">
+  <el-form-item label="品种" >
+    <el-input v-model="ruleForm['info']" readOnly style="width:300px"></el-input>
   </el-form-item>
   <el-form-item label="区域">
-    <el-input v-model="ruleForm['区域']" readOnly></el-input>
+    <el-input v-model="ruleForm['区域']" readOnly style="width:300px"></el-input>
   </el-form-item>
   <el-form-item label="感官" prop="感官">
-    <el-input v-model="ruleForm['感官']"></el-input>
+    <el-input v-model="ruleForm['感官']" style="width:300px"></el-input>
   </el-form-item>
-  <el-form-item label="脂肪" prop="脂肪">
-    <el-input v-model="ruleForm['脂肪']"></el-input>
+  <el-form-item label="脂肪(g/100g)" prop="脂肪">
+    <el-input v-model="ruleForm['脂肪']" style="width:300px"></el-input>
   </el-form-item>
-  <el-form-item label="蛋白质" prop="蛋白质">
-    <el-input v-model="ruleForm['蛋白质']"></el-input>
+  <el-form-item label="蛋白质(g/100g)" prop="蛋白质">
+    <el-input v-model="ruleForm['蛋白质']" style="width:300px"></el-input>
   </el-form-item>
-  <el-form-item label="水分" prop="水分">
-    <el-input v-model="ruleForm['水分']"></el-input>
+  <el-form-item label="水分(g/100g)" prop="水分">
+    <el-input v-model="ruleForm['水分']" style="width:300px"></el-input>
   </el-form-item>
   <el-form-item label="抗生素" prop="抗生素">
-    <el-input v-model="ruleForm['抗生素']"></el-input>
+    <el-input v-model="ruleForm['抗生素']" style="width:300px"></el-input>
   </el-form-item>
   <el-form-item label="β-内酰胺酶" prop="β-内酰胺酶">
-    <el-input v-model="ruleForm['β-内酰胺酶']"></el-input>
+    <el-input v-model="ruleForm['β-内酰胺酶']" style="width:300px"></el-input>
   </el-form-item>
-  <el-form-item label="酸度" prop="酸度">
-    <el-input v-model="ruleForm['酸度']"></el-input>
+  <el-form-item label="酸度(°T)" prop="酸度">
+    <el-input v-model="ruleForm['酸度']" style="width:300px"></el-input>
   </el-form-item>
-  <el-form-item label="DBP" prop="DBP">
-    <el-input v-model="ruleForm['DBP']"></el-input>
+  <el-form-item label="DBP(g/100g)" prop="DBP">
+    <el-input v-model="ruleForm['DBP']" style="width:300px"></el-input>
   </el-form-item>
   <el-form-item>
     <el-button type="primary" @click="submitForm('ruleForm')">立即创建</el-button>
