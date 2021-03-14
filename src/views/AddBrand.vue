@@ -36,20 +36,20 @@
   <el-form-item label="维生素E(mg/100g)" prop="维生素E">
     <el-input v-model="ruleForm['维生素E']" style="width:300px"></el-input>
   </el-form-item>
-  <el-form-item label="维生素K1(µg /100g)" prop="维生素K1">
-    <el-input v-model="ruleForm['维生素K1']" style="width:300px"></el-input>
+  <el-form-item label="维生素K₁(µg /100g)" prop="维生素K₁">
+    <el-input v-model="ruleForm['维生素K₁']" style="width:300px"></el-input>
   </el-form-item>
-  <el-form-item label="维生素B1(mg/100g)" prop="维生素B1">
-    <el-input v-model="ruleForm['维生素B1']" style="width:300px"></el-input>
+  <el-form-item label="维生素B₁(mg/100g)" prop="维生素B₁">
+    <el-input v-model="ruleForm['维生素B₁']" style="width:300px"></el-input>
   </el-form-item>
-  <el-form-item label="维生素B2(mg/100g)" prop="维生素B2">
-    <el-input v-model="ruleForm['维生素B2']" style="width:300px"></el-input>
+  <el-form-item label="维生素B₂(mg/100g)" prop="维生素B₂">
+    <el-input v-model="ruleForm['维生素B₂']" style="width:300px"></el-input>
   </el-form-item>
-  <el-form-item label="维生素B6(mg/100g)" prop="维生素B6">
-    <el-input v-model="ruleForm['维生素B6']" style="width:300px"></el-input>
+  <el-form-item label="维生素B₆(mg/100g)" prop="维生素B₆">
+    <el-input v-model="ruleForm['维生素B₆']" style="width:300px"></el-input>
   </el-form-item>
-  <el-form-item label="维生素B12(µg /100g)" prop="维生素B12">
-    <el-input v-model="ruleForm['维生素B12']" style="width:300px"></el-input>
+  <el-form-item label="维生素B₁₂(µg /100g)" prop="维生素B₁₂">
+    <el-input v-model="ruleForm['维生素B₁₂']" style="width:300px"></el-input>
   </el-form-item>
   <el-form-item label="烟酸(µg /100g)" prop="烟酸">
     <el-input v-model="ruleForm['烟酸']" style="width:300px"></el-input>
@@ -225,11 +225,11 @@
           维生素A:'',
           维生素D:'',
           维生素E:'',
-          维生素K1:'',
-          维生素B1:'',
-          维生素B2:'',
-          维生素B6:'',
-          维生素B12:'',
+          '维生素K₁':'',
+          '维生素B₁':'',
+          '维生素B₂':'',
+          '维生素B₆':'',
+          '维生素B₁₂':'',
           烟酸:'',
           叶酸:'',
           泛酸:'',

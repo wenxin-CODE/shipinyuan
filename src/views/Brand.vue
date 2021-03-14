@@ -71,28 +71,28 @@
         width="150">
       </el-table-column>
       <el-table-column
-        prop="维生素K1"
-        label="维生素K1(µg/100g)"
+        prop="维生素K₁"
+        label="维生素K₁(µg/100g)"
         width="170">
       </el-table-column>
       <el-table-column
-        prop="维生素B1"
-        label="维生素B1(mg/100g)"
+        prop="维生素B₁"
+        label="维生素B₁(mg/100g)"
         width="170">
       </el-table-column>
       <el-table-column
-        prop="维生素B2"
-        label="维生素B2(mg/100g)"
+        prop="维生素B₂"
+        label="维生素B₂(mg/100g)"
         width="170">
       </el-table-column>
       <el-table-column
-        prop="维生素B6"
-        label="维生素B6(mg/100g)"
+        prop="维生素B₆"
+        label="维生素B₆(mg/100g)"
         width="170">
       </el-table-column>
       <el-table-column
-        prop="维生素B12"
-        label="维生素B12(µg/100g)"
+        prop="维生素B₁₂"
+        label="维生素B₁₂(µg/100g)"
         width="170">
       </el-table-column>
       <el-table-column

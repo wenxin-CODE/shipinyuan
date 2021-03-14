@@ -6,8 +6,8 @@
   <el-form-item label="硒(mg/kg)" prop="硒">
     <el-input v-model="ruleForm['硒']" style="width:300px"></el-input>
   </el-form-item>
-  <el-form-item label="维生素B2(mg/100g)" prop="维生素B2">
-    <el-input v-model="ruleForm['维生素B2']" style="width:300px"></el-input>
+  <el-form-item label="维生素B₂(mg/100g)" prop="维生素B₂">
+    <el-input v-model="ruleForm['维生素B₂']" style="width:300px"></el-input>
   </el-form-item>
   <el-form-item label="维生素E(mg/100g)" prop="维生素E">
     <el-input v-model="ruleForm['维生素E']" style="width:300px"></el-input>
@@ -33,7 +33,7 @@
       return {
         res:'',
         ruleForm: {
-          维生素B2:'',
+          '维生素B₂':'',
           维生素E:'',
           硒:'',
           酸度:'',
@@ -48,23 +48,23 @@
     methods: {
       doSearch() {
         // if(this.ruleForm.酸度<11 && this.ruleForm.硒<0.13 &&
-        //    this.ruleForm.维生素B2>0.5 && this.ruleForm.维生素E>0.6){
+        //    this.ruleForm.维生素B₂>0.5 && this.ruleForm.维生素E>0.6){
         //   this.$message.info("该产品为陕西羊奶粉");
         // }else{
         //   this.$message.info("该产品不是陕西羊奶粉");
         // }
         //提示信息
         var a=0;
-        if(this.ruleForm.酸度<11){
+        if(this.ruleForm['酸度']<11){
             a++;
         }
-        if(this.ruleForm.硒<0.13){
+        if(this.ruleForm['硒']<0.13){
             a++;
         }
-        if(this.ruleForm.维生素B2>0.5){
+        if(this.ruleForm['维生素B₂']>0.5){
             a++;
         }
-        if(this.ruleForm.维生素E>0.6){
+        if(this.ruleForm['维生素E']>0.6){
             a++;
         }
         if(a==2){
