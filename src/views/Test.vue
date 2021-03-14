@@ -55,16 +55,16 @@
         // }
         //提示信息
         var a=0;
-        if(this.ruleForm['酸度']<11){
+        if(this.ruleForm['酸度']<11 && this.ruleForm['酸度']!=0 ){
             a++;
         }
-        if(this.ruleForm['硒']<0.13){
+        if(this.ruleForm['硒']<0.13 && this.ruleForm['硒']!=0){
             a++;
         }
-        if(this.ruleForm['维生素B₂']>0.5){
+        if(this.ruleForm['维生素B₂']>0.5 && this.ruleForm['维生素B₂']!=0){
             a++;
         }
-        if(this.ruleForm['维生素E']>0.6){
+        if(this.ruleForm['维生素E']>0.6 && this.ruleForm['维生素E']!=0){
             a++;
         }
         if(a==2){
@@ -92,7 +92,7 @@
 <style scoped>
 
 .te>>>input{
-color:chocolate;
+color:red;
 }
 
 .el-form{
