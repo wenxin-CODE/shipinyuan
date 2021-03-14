@@ -176,7 +176,7 @@
       </el-table-column>
       <el-table-column
         prop="酸度"
-        label="酸度"
+        label="酸度(°T)"
         width="120">
       </el-table-column>
       <el-table-column

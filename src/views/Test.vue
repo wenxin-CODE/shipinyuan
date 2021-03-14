@@ -6,7 +6,7 @@
   <el-form-item label="硒(mg/kg)" prop="硒">
     <el-input v-model="ruleForm['硒']" style="width:300px"></el-input>
   </el-form-item>
-  <el-form-item label="维生素B2(mg/100g)" prop="维生素B2">
+  <el-form-item label="维生素@a(mg/100g)" prop="维生素B2">
     <el-input v-model="ruleForm['维生素B2']" style="width:300px"></el-input>
   </el-form-item>
   <el-form-item label="维生素E(mg/100g)" prop="维生素E">
@@ -22,6 +22,7 @@
   <el-form-item label="检测结果为">
   <el-input v-model="res" style="width:300px" class="te"></el-input>
   </el-form-item>
+  <!-- A<SUB>11</SUB>A<SUB>12</SUB>...A<SUB>1n</SUB> -->
 </el-form>
 </div>
 </template>
@@ -67,16 +68,19 @@
             a++;
         }
         if(a==2){
-          this.res="该产品可能是陕西羊奶粉";
-          //this.$message.info("该产品可能是陕西羊奶粉");
-        }else if(a==3){
           this.res="该产品极有可能是陕西羊奶粉";
+          //this.$message.info("该产品可能是陕西羊奶粉");
+        }else if(a==1){
+          this.res="该产品可能是陕西羊奶粉";
+          //this.$message.info("该产品极有可能是陕西羊奶粉");
+        }else if(a==3){
+          this.res="该产品确定是陕西羊奶粉";
           //this.$message.info("该产品极有可能是陕西羊奶粉");
         }else if(a==4){
           this.res="该产品确定是陕西羊奶粉";
           //this.$message.info("该产品确定是陕西羊奶粉");
         }else{
-          this.res="该产品可能是陕西羊奶粉";
+          this.res="该产品不是陕西羊奶粉";
           //this.$message.info("该产品不是陕西羊奶粉");
         }
       },
