@@ -68,13 +68,10 @@
             a++;
         }
         if(a==2){
-          this.res="该产品极有可能是陕西羊奶粉";
-          //this.$message.info("该产品可能是陕西羊奶粉");
-        }else if(a==1){
           this.res="该产品可能是陕西羊奶粉";
-          //this.$message.info("该产品极有可能是陕西羊奶粉");
+          //this.$message.info("该产品可能是陕西羊奶粉");
         }else if(a==3){
-          this.res="该产品确定是陕西羊奶粉";
+          this.res="该产品极有可能是陕西羊奶粉";
           //this.$message.info("该产品极有可能是陕西羊奶粉");
         }else if(a==4){
           this.res="该产品确定是陕西羊奶粉";
