@@ -6,7 +6,7 @@
   <el-form-item label="硒(mg/kg)" prop="硒">
     <el-input v-model="ruleForm['硒']" style="width:300px"></el-input>
   </el-form-item>
-  <el-form-item label="维生素@a(mg/100g)" prop="维生素B2">
+  <el-form-item label="维生素B2(mg/100g)" prop="维生素B2">
     <el-input v-model="ruleForm['维生素B2']" style="width:300px"></el-input>
   </el-form-item>
   <el-form-item label="维生素E(mg/100g)" prop="维生素E">
