@@ -24,7 +24,7 @@ const routes = [
     name: "市售羊奶粉",
     component: Index,
     show: true,
-    redirect: "/Brand",
+    redirect: "/login",
     children:[
       {
         path: '/Brand',
@@ -132,8 +132,9 @@ const routes = [
   
 ]
 
+
 const router = new VueRouter({
-  mode: 'history',
+  mode: 'hash',
   base: process.env.BASE_URL,
   routes
 })
