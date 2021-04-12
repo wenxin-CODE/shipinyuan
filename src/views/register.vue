@@ -37,23 +37,34 @@ export default {
   //点击完成按钮触发handlefinish
     handlefinish:function()
     {
-      if(localStorage['name']===this.name)
-      {
-        alert("用户名已存在");//如果用户名已存在则无法注册
-      }
-      else if(this.name==='')
-      {
-        alert("用户名不能为空");
-      }
-      else{//将新用户信息存储到localStorage
-        localStorage.setItem('name',this.name);
-        localStorage.setItem('password',this.password);
-        localStorage.setItem('mail',this.mail);
-        localStorage.setItem('tel',this.tel);
-        localStorage.setItem('s',"false");
-        alert("注册成功");
-        this.$router.replace('/Login');//完成注册后跳转至登录页面
-      }
+      var _this = this
+      this.axios.post("/register",{
+            username:this.data.name,
+            password:this.data.password,
+          })
+        .then(function (response) {
+            // console.log(response.data.status)
+            if(response.data.status === 200){
+              alert("恭喜你，注册成功")
+            //   _this.$message({
+            //   message: '恭喜你，注册成功',
+            //   type: 'success'
+            // })
+            _this.$router.replace('/login')
+            }
+            else {
+              _this.$message({
+              message: '该用户名已存在，请更换一个',
+              type: 'error'
+            })
+            }
+          })
+        .catch(function (error) {
+            console.log(error)
+          })
+    },
+    tologin () {
+      this.$router.replace('/login')
     }
   }
 };

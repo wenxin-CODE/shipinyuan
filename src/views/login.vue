@@ -20,7 +20,7 @@
           </div>
           
         </form>
-              <button  type="submit" @click.prevent="handlelogin">登录			</button>
+              <button  type="submit" @click.prevent="login">登录			</button>
               <!-- v-on点击按钮触发handlelogin方法 -->
               <button  @click.prevent="handleregister">注册</button>
           <router-view></router-view>
@@ -66,6 +66,21 @@ export default {
       this.st="true";//修改登录状态为true
       localStorage.setItem('s',this.st);
       console.log(localStorage.s);
+    },
+    login () {
+      this.$axios
+        .post('http://goat.oct-month.top/api/login/login', {
+          username: this.data.name,
+          password: this.data.password
+        })
+        .then(successResponse => {
+          if (successResponse.status === 200) {
+            if (successResponse.data != null)
+              this.$router.replace({path: '/Brand'})
+          }
+        })
+        .catch(failResponse => {
+        })
     }
   }
 };
