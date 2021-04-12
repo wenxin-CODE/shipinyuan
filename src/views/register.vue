@@ -21,6 +21,9 @@
 </template>
 
 <script>
+import axios from 'axios';
+axios.defaults.withCredentials = true
+
 export default {
     name:'register',
     props: {
@@ -38,7 +41,7 @@ export default {
     handlefinish:function()
     {
       var _this = this
-      this.axios.post("/register",{
+      axios.post("/register",{
             username:this.data.name,
             password:this.data.password,
           })

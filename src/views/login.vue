@@ -30,6 +30,9 @@
 
 <script>
 //https://blog.csdn.net/weixin_43478503/article/details/114028577
+import axios from 'axios'
+axios.defaults.withCredentials = true
+
 export default {
   data(){
     return{
@@ -68,10 +71,10 @@ export default {
       console.log(localStorage.s);
     },
     login () {
-      this.$axios
+      axios
         .post('http://goat.oct-month.top/api/login/login', {
-          username: this.data.name,
-          password: this.data.password
+          username: this.name,
+          password: this.password
         })
         .then(successResponse => {
           if (successResponse.status === 200) {
