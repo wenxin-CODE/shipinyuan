@@ -78,7 +78,7 @@ export default {
         })
         .then(successResponse => {
           if (successResponse.status === 200) {
-            if (successResponse.data != null)
+            if (successResponse.data["username"] != null)
               this.$router.replace({path: '/Brand'})
           }
         })

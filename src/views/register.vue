@@ -41,13 +41,13 @@ export default {
     handlefinish:function()
     {
       var _this = this
-      axios.post("/register",{
-            username:this.data.name,
-            password:this.data.password,
+      axios.post("http://goat.oct-month.top/api/login/registry",{
+            username:this.name,
+            password:this.password,
           })
-        .then(function (response) {
+        .then(Response => {
             // console.log(response.data.status)
-            if(response.data.status === 200){
+            if(Response.status === 200 && Response.data != ''){
               alert("恭喜你，注册成功")
             //   _this.$message({
             //   message: '恭喜你，注册成功',
@@ -57,7 +57,7 @@ export default {
             }
             else {
               _this.$message({
-              message: '该用户名已存在，请更换一个',
+              message: '注册失败',
               type: 'error'
             })
             }
