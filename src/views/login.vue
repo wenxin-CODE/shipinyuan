@@ -71,16 +71,21 @@ export default {
       console.log(localStorage.s);
     },
     login () {
+      var that = this;
       axios
         .post('http://goat.oct-month.top/api/account/login', {
-          username: this.name,
-          password: this.password
+          username: that.name,
+          password: that.password
         })
         .then(res => {
           if (res.data.status === "success") {
-            this.$store.commit("login", res.data.data.username, res.data.data.role)
-            console.log(this.$store.state.user_role)
-            this.$router.replace({path: '/Brand'})
+            that.$store.commit({
+              type: "login",
+              username: res.data.data.username,
+              userrole: res.data.data.role
+            })
+            that.$router.replace({path: '/Brand'})
+            // console.log(this.$store.state.user_role) // 拿到用户的role
           }
         })
         .catch(error => {

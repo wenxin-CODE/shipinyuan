@@ -9,9 +9,9 @@ export default new Vuex.Store({
     user_role: ""
   },
   mutations: {
-    login(state, username, userrole) {
-      state.user_name = username
-      state.user_role = userrole
+    login(state, data) {
+      state.user_name = data.username
+      state.user_role = data.userrole
     }
   },
   actions: {
