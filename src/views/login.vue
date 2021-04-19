@@ -78,6 +78,8 @@ export default {
         })
         .then(res => {
           if (res.data.status === "success") {
+            this.$store.commit("login", res.data.data.username, res.data.data.role)
+            console.log(this.$store.state.role)
             this.$router.replace({path: '/Brand'})
           }
         })
