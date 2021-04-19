@@ -9,14 +9,13 @@
         <div class="form">
           <label>密码：</label><input type="password" v-model.trim="password"><br/>
         </div>
-        <!-- <div class="form">
+        <div class="form">
           <label>邮箱：</label><input type="email" v-model.trim="mail"><br/>
         </div>
         <div class="form">
-          <label>手机号：</label><input type="tel" v-model.trim="tel"><br/>
-        </div> -->
+          <label>验证码：</label><input type="code" v-model.trim="code"><br/>
+        </div>
         <button @click.prevent="handlefinish">提交</button>
-        <h5>仅管理员具有对数据的修改权限</h5>
       </div>
     </div>
 </template>
@@ -25,6 +24,7 @@
 import axios from 'axios';
 axios.defaults.withCredentials = true
 
+//https://www.codenong.com/cs109676298/
 export default {
     name:'register',
     props: {
@@ -34,10 +34,31 @@ export default {
     return{
       name:"",
       password:"",
-      // mail:"",
-      // tel:""
+      mail:"",
+      code:""
   };
   },methods:{
+
+      getCode() {
+      axios
+        .get("url", {
+          params: {
+            email: this.mail
+          }
+        })
+        .then(() => {
+          this.$message({
+            message: "已发送验证码",
+            type: "success"
+          });
+        })
+        .catch(() => {
+          this.$message({
+            message: "请求超时，请检查网络连接",
+            type: "error"
+          });
+        });
+    },
   //点击完成按钮触发handlefinish
     handlefinish:function()
     {
@@ -45,6 +66,7 @@ export default {
       axios.post("http://goat.oct-month.top/api/login/registry",{
             username:this.name,
             password:this.password,
+            code:this.code,
           })
         .then(Response => {
             // console.log(response.data.status)

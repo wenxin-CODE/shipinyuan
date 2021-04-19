@@ -128,6 +128,12 @@ const routes = [
       name: "register",
       component: () =>
         import("@/views/register.vue")
+    },
+    {
+      path: "/master",
+      name: "master",
+      component: () =>
+        import("@/views/master.vue")
     }
   
 ]
