@@ -78,8 +78,7 @@ export default {
         })
         .then(res => {
           if (res.data.status === "success") {
-            if (res.data["username"] != null)
-              this.$router.replace({path: '/Brand'})
+            this.$router.replace({path: '/Brand'})
           }
         })
         .catch(error => {
