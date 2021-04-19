@@ -303,7 +303,7 @@ axios.defaults.withCredentials = true
         //与后端交互 
         axios.put('http://goat.oct-month.top/api/GoatMilkTestingSampleInternational/', this.ruleForm)
           .then(res => {
-            if(200 <= res.status < 300) {
+            if(res.data.status === "success") {
                 _this.$message('修改成功')
             }
         })

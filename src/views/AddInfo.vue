@@ -68,7 +68,7 @@ axios.defaults.withCredentials = true
           const _this = this
           axios.post('http://goat.oct-month.top/api/GoatMilkTestingSampleProvince/', this.ruleForm)
             .then(res => {
-              if(200 <= res.status < 300) {
+              if(res.data.status === "success") {
                   _this.$message('添加成功')
               }
           })

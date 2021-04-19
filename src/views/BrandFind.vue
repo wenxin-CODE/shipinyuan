@@ -546,8 +546,8 @@ export default {
     var that = this;
     axios.get('http://goat.oct-month.top/api/GoatMilkTestingSampleInternational/')
       .then(res => {
-        if (200 <= res.status < 300) {
-          that.brandData = res.data;
+        if (res.data.status === "success") {
+          that.brandData = res.data.data_list;
           that.tableData = that.brandData
         }
       })

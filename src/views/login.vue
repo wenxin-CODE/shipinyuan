@@ -72,17 +72,17 @@ export default {
     },
     login () {
       axios
-        .post('http://goat.oct-month.top/api/login/login', {
+        .post('http://goat.oct-month.top/api/account/login', {
           username: this.name,
           password: this.password
         })
-        .then(successResponse => {
-          if (successResponse.status === 200) {
-            if (successResponse.data["username"] != null)
+        .then(res => {
+          if (res.data.status === "success") {
+            if (res.data["username"] != null)
               this.$router.replace({path: '/Brand'})
           }
         })
-        .catch(failResponse => {
+        .catch(error => {
         })
     }
   }

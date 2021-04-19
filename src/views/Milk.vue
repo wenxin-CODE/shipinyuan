@@ -108,14 +108,15 @@ axios.defaults.withCredentials = true
          console.log(row);
         const _this = this
         axios.delete('http://goat.oct-month.top/api/CompanySelfInspectionRawGoatMilkSample/' + row.id)
-          .then(resp => {
-            _this.$alert(row.id+'删除成功','消息',{
-              confirmButtonText: '确定',
-              callback: action => {
-                window.location.reload()
-                //动态刷新
-              }
-            })
+          .then(res => {
+            if (res.data.status === "success")
+              _this.$alert(row.id+'删除成功','消息',{
+                confirmButtonText: '确定',
+                callback: action => {
+                  window.location.reload()
+                  //动态刷新
+                }
+              })
         })
         .catch(error => {
           console.error(error);
@@ -152,9 +153,9 @@ axios.defaults.withCredentials = true
       const that = this
       axios.get('http://goat.oct-month.top/api/CompanySelfInspectionRawGoatMilkSample/')
         .then(res => {
-          if (200 <= res.status < 300)
+          if (res.data.status === "success")
           {
-            that.tableData = res.data
+            that.tableData = res.data.data_list
             // console.log(that.tableData);
             that.changePage(1)
           }

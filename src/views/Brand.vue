@@ -370,13 +370,14 @@
 import axios from 'axios';
 axios.defaults.withCredentials = true
 
-  export default {
-    methods: {
-      deletebrand(row){
-        // console.log(row.id);
-        const _this = this
-        axios.delete('http://goat.oct-month.top/api/GoatMilkTestingSampleInternational/' + row.id)
-          .then(resp => {
+export default {
+  methods: {
+    deletebrand(row){
+      // console.log(row.id);
+      const _this = this
+      axios.delete('http://goat.oct-month.top/api/GoatMilkTestingSampleInternational/' + row.id)
+        .then(res => {
+          if (res.data.status === "success")
             _this.$alert(row.id+'删除成功','消息',{
               confirmButtonText: '确定',
               callback: action => {
@@ -384,58 +385,58 @@ axios.defaults.withCredentials = true
                 //动态刷新
               }
             })
-        })
-        .catch(error => {
-          console.error(error);
-        })
-      },
-      edit(row) {
-        this.$router.push({
-          path: '/BrandUpdate',
-          query:{
-            row: row
-            //跳转到修改页面，利用id查询数据库对应信息显示出来
-          }
-        })
-        //row.id
-      },
-      changePage(currentPage) {
-        var start = this.page_size * (currentPage - 1)
-        var end = start + this.page_size
-        this.currentTabelData = this.tableData.slice(start, end)
-      }
+      })
+      .catch(error => {
+        console.error(error);
+      })
     },
-    //用于获取后台返回的数据
-    // created(){
-    //   const _this = this
-    //   axios.get('').then(function (resp){
-    //     _this.tableData = resp.data.content
-    //     _this.total = resp.data.totalElements
-    //   })
-    // },
-    mounted() {
-      const that = this
-      axios.get('http://goat.oct-month.top/api/GoatMilkTestingSampleInternational/')
-        .then(res => {
-          if (200 <= res.status < 300)
-          {
-            that.tableData = res.data
-            // console.log(that.tableData);
-            that.changePage(1)
-          }
-        })
-        .catch(error => {
-          console.error(error)
-        })
+    edit(row) {
+      this.$router.push({
+        path: '/BrandUpdate',
+        query:{
+          row: row
+          //跳转到修改页面，利用id查询数据库对应信息显示出来
+        }
+      })
+      //row.id
     },
-    data() {
-      return {
-        // total: null,
-        // tableData: null,
-        tableData: [],
-        currentTabelData: [],
-        page_size: 5
-      }
+    changePage(currentPage) {
+      var start = this.page_size * (currentPage - 1)
+      var end = start + this.page_size
+      this.currentTabelData = this.tableData.slice(start, end)
+    }
+  },
+  //用于获取后台返回的数据
+  // created(){
+  //   const _this = this
+  //   axios.get('').then(function (resp){
+  //     _this.tableData = resp.data.content
+  //     _this.total = resp.data.totalElements
+  //   })
+  // },
+  mounted() {
+    const that = this
+    axios.get('http://goat.oct-month.top/api/GoatMilkTestingSampleInternational/')
+      .then(res => {
+        if (res.data.status === "success")
+        {
+          that.tableData = res.data.data_list
+          // console.log(that.tableData);
+          that.changePage(1)
+        }
+      })
+      .catch(error => {
+        console.error(error)
+      })
+  },
+  data() {
+    return {
+      // total: null,
+      // tableData: null,
+      tableData: [],
+      currentTabelData: [],
+      page_size: 5
     }
   }
+}
 </script>

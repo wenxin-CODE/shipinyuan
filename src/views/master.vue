@@ -63,14 +63,14 @@ export default {
     handlefinish:function()
     {
       var _this = this
-      axios.post("http://goat.oct-month.top/api/login/registry",{
+      axios.post("http://goat.oct-month.top/api/account/registry",{
             username:this.name,
             password:this.password,
             code:this.code,
           })
-        .then(Response => {
-            // console.log(response.data.status)
-            if(Response.status === 200 && Response.data != ''){
+        .then(res => {
+            // console.log(res.data.status)
+            if(res.data.status === "success"){
               alert("恭喜你，注册成功")
             //   _this.$message({
             //   message: '恭喜你，注册成功',
