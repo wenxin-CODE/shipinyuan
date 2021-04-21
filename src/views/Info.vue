@@ -88,6 +88,9 @@ axios.defaults.withCredentials = true
 export default {
   methods: {
     deleteinfo(row){
+      if(this.$store.state.user_role !== 'admin'){
+          alert("无更改权限，仅管理员可操作");
+        }
       //console.log(row.id);
       const _this = this
       axios.delete('http://goat.oct-month.top/api/GoatMilkTestingSampleProvince/' + row.id)

@@ -106,6 +106,9 @@ axios.defaults.withCredentials = true
     methods: {
       deletemilk(row){
          console.log(row);
+         if(this.$store.state.user_role !== 'admin'){
+          alert("无更改权限，仅管理员可操作");
+        }
         const _this = this
         axios.delete('http://goat.oct-month.top/api/CompanySelfInspectionRawGoatMilkSample/' + row.id)
           .then(res => {

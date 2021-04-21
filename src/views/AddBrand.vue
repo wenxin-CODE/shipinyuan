@@ -293,6 +293,9 @@ axios.defaults.withCredentials = true
     },
     methods: {
       submitForm(formName) {
+        if(this.$store.state.user_role !== 'admin'){
+          alert("无更改权限，仅管理员可操作");
+        }
         const _this = this
         //与后端交互 
         axios.post('http://goat.oct-month.top/api/GoatMilkTestingSampleInternational/', this.ruleForm)

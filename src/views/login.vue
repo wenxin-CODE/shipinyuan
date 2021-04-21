@@ -85,7 +85,7 @@ export default {
               userrole: res.data.data.role
             })
             that.$router.replace({path: '/Brand'})
-            // console.log(this.$store.state.user_role) // 拿到用户的role
+            console.log(this.$store.state.user_role) // 拿到用户的role
           }
         })
         .catch(error => {

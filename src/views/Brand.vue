@@ -374,6 +374,9 @@ export default {
   methods: {
     deletebrand(row){
       // console.log(row.id);
+      if(this.$store.state.user_role !== 'admin'){
+          alert("无更改权限，仅管理员可操作");
+        }
       const _this = this
       axios.delete('http://goat.oct-month.top/api/GoatMilkTestingSampleInternational/' + row.id)
         .then(res => {
