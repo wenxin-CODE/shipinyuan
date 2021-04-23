@@ -16,7 +16,7 @@
 }
 
 .el-aside {
-  color: #333;
+  color: #B3c0D1;
 }
 </style>
 

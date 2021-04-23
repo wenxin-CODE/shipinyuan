@@ -147,7 +147,7 @@ export default {
       // tableData: null,
       tableData: [],
       currentTabelData: [],
-      page_size: 5
+      page_size: 9
     }
   }
 }

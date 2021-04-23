@@ -1,12 +1,13 @@
 <template>
 <h1> 
+  <el-header>
   <center>羊奶粉信息数据库</center>
+  </el-header>
   <el-container id="container">
-  
-  <el-aside width="200px" style="background-color: rgb(238, 241, 246)">
+  <el-aside width="200px" style="background-color: rgb(138, 141, 246)">
     <el-menu :default-openeds="['1']" :default-active="'1-1'">
 
-      <el-menu router >
+      <el-menu router style="background-color: rgb(138, 141, 246)" >
           <el-submenu v-for="(item,index) in $router.options.routes" :key="index" :index="index+''" v-if="item.show">
             <template slot="title"><i class="el-icon-message"></i>{{item.name}}</template>
             <el-menu-item v-for="(item2,index2) in item.children" :key="index2" :index="item2.path" 
@@ -32,7 +33,7 @@
     </el-header>
   </el-container> -->  
 
-  <el-main>
+  <el-main style="background-color: rgb(228, 101, 146)">
     <router-view></router-view>
   </el-main>
   </el-container>
@@ -51,3 +52,18 @@
     name:"Other"
   };
 </script>
+
+<style scoped>
+  .el-header {
+    background-color: #c3b3d1;
+    color: #333;
+    /* line-height: 60px; */
+  }
+
+  .el-body {
+    background-color: #d1b3b3;
+    color: #333;
+    /* line-height: 60px; */
+  }
+
+</style>

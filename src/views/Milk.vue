@@ -173,7 +173,7 @@ axios.defaults.withCredentials = true
       return {
         tableData: [],
         currentTabelData: [],
-        page_size: 5
+        page_size: 9
       }
     }
   }
