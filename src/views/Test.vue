@@ -15,6 +15,15 @@
   <el-form-item label="酸度(°T)" prop="酸度">
     <el-input v-model="ruleForm['酸度']" style="width:300px"></el-input>
   </el-form-item>
+  <el-form-item label="脂蛋比" prop="脂蛋比">
+    <el-input v-model="ruleForm['脂蛋比']" style="width:300px"></el-input>
+  </el-form-item>
+  <el-form-item label="钙磷比" prop="钙磷比">
+    <el-input v-model="ruleForm['钙磷比']" style="width:300px"></el-input>
+  </el-form-item>
+  <el-form-item label="反式脂肪酸与总脂肪酸的比值" prop="反式脂肪酸与总脂肪酸的比值">
+    <el-input v-model="ruleForm['反式脂肪酸与总脂肪酸的比值']" style="width:300px"></el-input>
+  </el-form-item>
   <el-form-item>
     <el-button type="primary" @click="doSearch('ruleForm')">检查信息</el-button>
     <el-button @click="resetForm('ruleForm')">重置</el-button>
@@ -37,6 +46,9 @@
           维生素E:'',
           硒:'',
           酸度:'',
+          脂蛋比:'',
+          钙磷比:'',
+          反式脂肪酸与总脂肪酸的比值:'',
         },
         rules: {
           state: [
@@ -65,6 +77,14 @@
             a++;
         }
         if(this.ruleForm['维生素E']>0.6 && this.ruleForm['维生素E']!=0){
+            a++;
+        }
+        if(this.ruleForm['脂蛋比']<1.13 && this.ruleForm['脂蛋比']!=0){            a++;
+        }
+        if(this.ruleForm['钙磷比']>=11.5 && this.ruleForm['钙磷比']!=0){
+            a++;
+        }
+        if(this.ruleForm['反式脂肪酸与总脂肪酸的比值']>=0.9 && this.ruleForm['反式脂肪酸与总脂肪酸的比值']!=0){
             a++;
         }
         if(a==2){

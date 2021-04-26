@@ -15,6 +15,12 @@ import InfoFind from '../views/InfoFind'
 import MilkFind from '../views/MilkFind'
 import Test from '../views/Test'
 import login from '../views/login'
+import DNA from '../views/DNA'
+import AddDNA from '../views/AddDNA'
+import DNAFind from '../views/DNAFind'
+import DNAUpdate from '../views/DNAUpdate'
+import NOSE from '../views/NOSE'
+import TONGUE from '../views/TONGUE'
 
 Vue.use(VueRouter)
 
@@ -107,6 +113,34 @@ const routes = [
   },
   {
     path: "/navigation",
+    name: "DNA数据",
+    component: Index,
+    show: true,
+    children:[
+      {
+        path: '/DNA',
+        name: 'DNA数据',
+        component: DNA
+      },
+      {
+        path: '/AddDNA',
+        name: '添加DNA信息',
+        component: AddDNA
+      },
+      {
+        path: '/DNAFind',
+        name: '快速查询',
+        component: DNAFind
+      }
+    ]
+  },
+  {
+    path: '/DNAUpdate',
+    component: DNAUpdate,
+    show: false
+  },
+  {
+    path: "/navigation",
     name: "市销产品",
     component: Index,
     show: true,
@@ -116,7 +150,24 @@ const routes = [
         name: '产地判断',
         component: Test
       }]
-    },
+  },
+  {
+    path: "/navigation",
+    name: "电子鼻、电子舌图谱",
+    component: Index,
+    show: true,
+    children:[
+      {
+        path: '/NOSE',
+        name: '电子鼻图谱',
+        component: NOSE
+      },
+      {
+        path: '/TONGUE',
+        name: '电子舌图谱',
+        component: TONGUE
+      }]
+  },
     {
       path: "/login",
       name: "login",
