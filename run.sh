@@ -2,4 +2,4 @@ docker run \
     --name GoatMilkWeb \
     --rm \
     -d \
-    sun/GoatMilkWeb
+    sun/goat-milk-web
