@@ -1,17 +1,17 @@
 <template>
   <div class="demo-image__lazy">
   <div class="block" v-for="url in urls" :key='url'>
-    <el-row :gutter="20">
-      <el-col>
+    <el-row :gutter="0">
+    
         <el-image
-        style="width:500px;height:500px"
+        style="width:300px;height:300px"
         :src='url'>
         </el-image>
-      </el-col>
-
-      <el-col>
+     
+    
+     
         <el-button @click="deletepicture(url)" type="primary" icon="el-icon-delete">删除</el-button>
-      </el-col>
+    
     </el-row>
   </div>
   <!-- <el-col :span="16">
@@ -23,7 +23,7 @@
     action="https://jsonplaceholder.typicode.com/posts/"
     :on-preview="handlePreview"
     :on-remove="handleRemove"
-    :file-list="urls"
+    :file-list="fileList"
     :auto-upload="false">
     <el-button slot="trigger" size="small" type="primary">选取文件</el-button>
     <el-button style="margin-left: 10px;" size="small" type="success" @click="submitUpload">上传到服务器</el-button>
@@ -36,6 +36,7 @@
   export default {
     data() {
       return {
+        fileList: [{}],
         urls: [
           'https://fuss10.elemecdn.com/a/3f/3302e58f9a181d2509f3dc0fa68b0jpeg.jpeg',
           'https://fuss10.elemecdn.com/1/34/19aa98b1fcb2781c4fba33d850549jpeg.jpeg',
@@ -97,3 +98,7 @@
     },
   }
 </script>
+
+<style scoped>
+  
+</style>
