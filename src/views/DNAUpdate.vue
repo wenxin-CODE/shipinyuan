@@ -9,11 +9,11 @@
   <el-form-item label="Abs280" prop="Abs280">
     <el-input v-model="ruleForm['Abs280']"></el-input>
   </el-form-item>
-  <el-form-item label="260/280" prop="260/280">
-    <el-input v-model="ruleForm['260_280']"></el-input>
+  <el-form-item label="260/280" prop="Abs260_280">
+    <el-input v-model="ruleForm['Abs260_280']"></el-input>
   </el-form-item>
-  <el-form-item label="DNA浓度（ng/ul）" prop="DNA浓度">
-    <el-input v-model="ruleForm['DNA浓度']"></el-input>
+  <el-form-item label="DNA浓度（ng/ul）" prop="DNA_content">
+    <el-input v-model="ruleForm['DNA_content']"></el-input>
   </el-form-item>
   <el-form-item>
     <el-button type="primary" @click="submitForm('ruleForm')">修改</el-button>
@@ -30,11 +30,11 @@ axios.defaults.withCredentials = true
     data() {
       return {
         ruleForm: {
-         id: '',
+          id: '',
           Abs260: '',
           Abs280: '',
-          260_280: '',
-          DNA浓度: '',
+          Abs260_280: '',
+          DNA_content: '',
         },
         rules: {
           feel: [
@@ -50,7 +50,7 @@ axios.defaults.withCredentials = true
         }
           const _this = this
         //与后端交互 
-        axios.put('', this.ruleForm)
+        axios.put('http://goat.oct-month.top/api/GoatDNAContent/', this.ruleForm)
           .then(res => {
             if(res.data.status === "success") {
                 _this.$message('修改成功')

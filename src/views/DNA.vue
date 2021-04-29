@@ -3,7 +3,7 @@
         <el-table
         :data="currentTabelData"
         border
-        style="width:100%">
+        style="width:70%">
         <el-table-column
         fixed
         prop="id"
@@ -24,13 +24,13 @@
         </el-table-column>
         <el-table-column
         fixed
-        prop="260_280"
+        prop="Abs260_280"
         label="260/280"
         width="150">
         </el-table-column>
         <el-table-column
         fixed
-        prop="DNA浓度"
+        prop="DNA_content"
         label="DNA浓度（ng/ul)"
         width="150">
         </el-table-column>
@@ -40,7 +40,7 @@
             width="100">
                 <template slot-scope="scope">
                 <el-button @click="edit(scope.row)" type="text" size="small">修改</el-button>
-                <el-button @click="deletemilk(scope.row)" type="text" size="small">删除</el-button>  
+                <el-button @click="deleteDNA(scope.row)" type="text" size="small">删除</el-button>  
                 </template>
         </el-table-column>
         </el-table>
@@ -60,34 +60,34 @@ import axios from 'axios';
 axios.defaults.withCredentials = true
 
 export default {
-  mounted:{
+  methods:{
       deleteDNA(row){
-          console.log(row);
-          if(this.$store.state.user_role !== 'admin'){
-              alert("无更改权限，仅管理员可操作");
-          }
-          const _this = this
-          axios.delete(''+row.id)
-          .then(res =>{
-              if(res.data.status === "success")
+        console.log(row);
+        if(this.$store.state.user_role !== 'admin'){
+            alert("无更改权限，仅管理员可操作");
+        }
+        const _this = this
+        axios.delete('http://goat.oct-month.top/api/GoatDNAContent/'+row.id)
+        .then(res =>{
+            if(res.data.status === "success")
               _this.$alert(row.id+'删除成功','消息',{
                   confirmButtonText:'确定',
                   callback:action=>{
                       window.location.reload()
                   }
               })
-          })
-          .catch(error => {
-              console.error(error);
-          })
+        })
+        .catch(error => {
+            console.error(error);
+        })
       },
       edit(row){
-          this.$route.push({
-              path: '/DNAUpdate',
-              query:{
-                 row:row 
-              }
-          })
+        this.$router.push({
+            path: '/DNAUpdate',
+            query:{
+                row:row 
+            }
+        })
       },
       changePage(currentPage) {
         var start = this.page_size * (currentPage - 1)
@@ -98,7 +98,7 @@ export default {
 
   mounted() {
       const that = this
-      axios.get('')
+      axios.get('http://goat.oct-month.top/api/GoatDNAContent/')
         .then(res => {
           if (res.data.status === "success")
           {

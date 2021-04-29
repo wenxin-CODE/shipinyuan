@@ -141,18 +141,6 @@ const routes = [
   },
   {
     path: "/navigation",
-    name: "市销产品",
-    component: Index,
-    show: true,
-    children:[
-      {
-        path: '/Test',
-        name: '产地判断',
-        component: Test
-      }]
-  },
-  {
-    path: "/navigation",
     name: "电子鼻、电子舌图谱",
     component: Index,
     show: true,
@@ -166,6 +154,18 @@ const routes = [
         path: '/TONGUE',
         name: '电子舌图谱',
         component: TONGUE
+      }]
+  },
+  {
+    path: "/navigation",
+    name: "市销产品",
+    component: Index,
+    show: true,
+    children:[
+      {
+        path: '/Test',
+        name: '产地判断',
+        component: Test
       }]
   },
     {
